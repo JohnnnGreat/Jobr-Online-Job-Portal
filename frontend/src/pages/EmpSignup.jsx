@@ -66,7 +66,7 @@ const EmpSignup = () => {
   const onSubmit = async (values) => {
     try {
       const response = await employerAxiosInstance.post("/signup", values);
-      console.log(response);
+      toast.success(response.data.msg);
     } catch (error) {
       console.error(error.response.data.msg);
       toast.error(error.response.data.msg);
