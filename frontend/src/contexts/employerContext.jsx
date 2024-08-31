@@ -57,12 +57,21 @@ export const EmployerProvider = ({ children }) => {
     localStorage.setItem("allJobs", JSON.stringify(response.data));
   };
 
+  // Function to handle user sign-out
+  const signOut = (navigate) => {
+    setEmployer(null);
+    localStorage.removeItem("employer");
+    localStorage.removeItem("employerToken");
+
+    navigate("/employer/signin");
+  };
+
   return (
     <EmployerContext.Provider
       value={{
         employer,
         signInOrSignUp,
-       
+        signOut,
         allJobsByEmployer,
         getSearchResults,
         refreshJobPost,

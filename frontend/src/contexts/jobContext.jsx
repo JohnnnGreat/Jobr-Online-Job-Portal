@@ -25,7 +25,8 @@ export const JobProvider = ({ children }) => {
   // Refresh job data and update localStorage
   const refresh = async () => {
     try {
-      const response = await jobAxiosInstance.get();
+      const response = await jobAxiosInstance.get("/");
+      console.log(response);
       const newJobs = response.data;
       localStorage.setItem("jobs", JSON.stringify(newJobs));
       setJobs(newJobs);

@@ -42,6 +42,7 @@ app.post("/", (req, res) => {
 const startServer = async () => {
   try {
     const PORT = process.env.PORT || 7070;
+
     const DATABASE_URL =
       process.env.NODE_ENV === "development" ? process.env.MONGO_DATABASE_URL : process.env.DB_URL;
 

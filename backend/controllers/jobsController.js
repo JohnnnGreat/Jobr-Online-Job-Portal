@@ -19,6 +19,7 @@ const storage = new sdk.Storage(client);
 const getAllJobs = async (req, res) => {
   try {
     const jobs = await Job.find();
+    console.log(jobs);
     res.status(200).json(jobs);
   } catch (error) {
     res.status(500).json({ message: error.message });

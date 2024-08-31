@@ -1,4 +1,3 @@
-import { jobs } from "../constants";
 import React, { useEffect } from "react";
 import JobsCard from "./JobsCard";
 import { useJob } from "../contexts/jobContext";
@@ -6,6 +5,7 @@ import { Button } from "./ui/button";
 
 const JobsDisplay = () => {
   const { refresh, jobs } = useJob();
+  console.log(jobs);
 
   useEffect(() => {
     refresh();
