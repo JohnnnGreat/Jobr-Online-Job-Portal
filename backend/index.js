@@ -42,7 +42,8 @@ app.post("/", (req, res) => {
 const startServer = async () => {
   try {
     const PORT = process.env.PORT || 7070;
-    const DATABASE_URL = process.env.DATABASE_URL || "mongodb://0.0.0.0:27017/jobr";
+    const DATABASE_URL =
+      process.env.NODE_ENV === "development" ? process.env.MONGO_DATABASE_URL : process.env.DB_URL;
 
     await mongoose.connect(DATABASE_URL);
     console.log("Connected to MongoDB");
