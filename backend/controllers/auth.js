@@ -31,7 +31,7 @@ exports.signUp = (req, res) => {
  */
 exports.googleSignIn = async (req, res) => {
   const { userPayload } = req.body;
-
+  console.log(userPayload);
   try {
     const { sub: googleId, email, name, picture } = userPayload;
 
@@ -73,7 +73,7 @@ exports.googleSignIn = async (req, res) => {
     // Send response with success status, token, and user info
     res.json({ success: true, sessionToken, user });
   } catch (error) {
-    console.error(error);
-    res.status(401).json({ success: false, message: "Invalid token", err });
+    
+    res.status(401).json({ success: false, message: "Invalid token", error });
   }
 };

@@ -31,7 +31,7 @@ const Signup = () => {
       const response = await axios.post(
         "https://jobr-online-job-portal.onrender.com/api/auth/google",
         { userPayload: userInformation.data },
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json" }, "Access-Control-Allow-Origin": "*" }
       );
 
       const { success, sessionToken, user } = response.data;

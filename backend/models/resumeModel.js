@@ -11,9 +11,9 @@ const jobExperienceSchema = new mongoose.Schema({
 });
 
 const socials = new mongoose.Schema({
-  linkedin: { type: String, required: true },
-  facebook: { type: String, required: true },
-  twitter: { type: String, required: true },
+  linkedin: { type: String },
+  facebook: { type: String },
+  twitter: { type: String },
 });
 
 const resumeSchema = new mongoose.Schema({
