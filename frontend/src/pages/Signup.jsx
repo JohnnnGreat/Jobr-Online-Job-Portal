@@ -29,7 +29,7 @@ const Signup = () => {
       });
       console.log(userInformation);
       const response = await axios.post(
-        "http://localhost:7070/api/auth/google",
+        "https://jobr-online-job-portal.onrender.com/api/auth/google",
         { userPayload: userInformation.data },
         { headers: { "Content-Type": "application/json" } }
       );
