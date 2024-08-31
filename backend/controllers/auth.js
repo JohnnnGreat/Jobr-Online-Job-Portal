@@ -74,6 +74,6 @@ exports.googleSignIn = async (req, res) => {
     res.json({ success: true, sessionToken, user });
   } catch (error) {
     console.error(error);
-    res.status(401).json({ success: false, message: "Invalid token" });
+    res.status(401).json({ success: false, message: "Invalid token", err });
   }
 };
