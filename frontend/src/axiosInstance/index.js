@@ -3,7 +3,10 @@ import axios from "axios";
 
 // Create an instance of Axios with default settings
 export const resumeAxiosInstance = axios.create({
-  baseURL: "http://localhost:7070/api/resume", // Replace with your base URL
+  baseURL:
+    import.meta.env.DEV === "true"
+      ? "http://localhost:7070/api/resume"
+      : "https://jobr-online-job-portal.onrender.com/api/resume",
   headers: {
     "Content-Type": "application/json",
     // You can set other default headers here
@@ -11,7 +14,10 @@ export const resumeAxiosInstance = axios.create({
 });
 
 export const employerAxiosInstance = axios.create({
-  baseURL: "http://localhost:7070/api/employer", // Replace with your base URL
+  baseURL:
+    import.meta.env.DEV === "true"
+      ? "http://localhost:7070/api/employer"
+      : "https://jobr-online-job-portal.onrender.com/api/employer",
 
   headers: {
     "Content-Type": "application/json",
@@ -20,7 +26,10 @@ export const employerAxiosInstance = axios.create({
 });
 
 export const jobAxiosInstance = axios.create({
-  baseURL: "http://localhost:7070/api/jobs", // Replace with your base URL
+  baseURL:
+    import.meta.env.DEV === "true"
+      ? "http://localhost:7070/api/jobs"
+      : "https://jobr-online-job-portal.onrender.com/api/jobs",
 
   headers: {
     "Content-Type": "application/json",
@@ -29,7 +38,10 @@ export const jobAxiosInstance = axios.create({
 });
 
 export const applicationInstance = axios.create({
-  baseURL: "http://localhost:7070/api/applications", // Replace with your base URL
+  baseURL:
+    import.meta.env.DEV === "true"
+      ? "http://localhost:7070/api/applications"
+      : "https://jobr-online-job-portal.onrender.com/api/applications",
 
   headers: {
     "Content-Type": "application/json",

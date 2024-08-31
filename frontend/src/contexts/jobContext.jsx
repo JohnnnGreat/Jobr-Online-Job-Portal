@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
 // UserContext.js
-import React, { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { jobAxiosInstance } from "../axiosInstance";
 
 // Create the JobContext

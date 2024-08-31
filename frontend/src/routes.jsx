@@ -6,7 +6,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Logout from "./pages/Logout";
 import EditCv from "./pages/EditCv";
-import CVView from "./pages/cvView";
+import CVView from "./pages/CVView";
 import SingleJob from "./pages/SingleJob";
 import AddJob from "./pages/JobBoard";
 import EmpSignup from "./pages/EmpSignup";
