@@ -1,3 +1,4 @@
+const { application } = require("express");
 const UserApplication = require("../models/userApplicationModel");
 
 /**
@@ -8,7 +9,7 @@ const UserApplication = require("../models/userApplicationModel");
  */
 const addApplication = async (req, res) => {
   try {
-    const { userId, jobId, coverLetter, resumeUrl } = req.body;
+    const { userId, jobId, coverLetter, resumeUrl, employerId } = req.body;
 
     // Validate required fields
     if (!userId || !jobId || !resumeUrl) {
@@ -27,6 +28,7 @@ const addApplication = async (req, res) => {
       jobId,
       coverLetter,
       resumeUrl,
+      employerId,
     });
 
     const savedApplication = await newApplication.save();
@@ -100,6 +102,7 @@ const updateApplicationStatus = async (req, res) => {
     const { applicationId } = req.params;
     const { applicationStatus } = req.body;
 
+    console.log(applicationId, applicationStatus);
     // Validate the new status
     const validStatuses = ["applied", "reviewing", "shortlisted", "rejected", "accepted"];
     if (!validStatuses.includes(applicationStatus)) {
@@ -141,6 +144,22 @@ const deleteApplication = async (req, res) => {
   }
 };
 
+/**
+ * Controller to get all applications by Employer Ids
+ * @param {Object} req  -  The Request containing the employerId parameter
+ * @param {*} res The response object
+ */
+
+const getAllJobsByEmployer = async (req, res) => {
+  const { employerId } = req.params;
+
+  try {
+    const applications = await UserApplication.find({ employerId }).populate("jobId userId");
+    res.status(200).json(applications);
+  } catch (error) {
+    res.status(500).json({ message: "Error Fetching Application", error: error.message });
+  }
+};
 // Export the controllers
 module.exports = {
   addApplication,
@@ -149,4 +168,5 @@ module.exports = {
   getApplicationById,
   updateApplicationStatus,
   deleteApplication,
+  getAllJobsByEmployer,
 };

@@ -20,6 +20,7 @@ import { employerAxiosInstance } from "./axiosInstance";
 import MyApplications from "./pages/MyApplications";
 import Applications from "./pages/Applications";
 import EmProfile from "./pages/EmProfile";
+import ApplicationDetails from "./pages/ApplicationDetails";
 
 const getUserLoginStatus = () => {
   const token = JSON.parse(localStorage.getItem("sessionToken"));
@@ -60,7 +61,11 @@ const router = createBrowserRouter([
             element: <EmployerLayout />,
             children: [
               { path: "addjob", element: <JobBoard /> },
-              { path: "applications", element: <Applications /> },
+              {
+                path: "applications",
+                element: <Applications />,
+                children: [{ path: ":applicationId", element: <ApplicationDetails /> }],
+              },
               { path: "profile", index: true, element: <EmProfile /> },
               {
                 path: "alljobs",

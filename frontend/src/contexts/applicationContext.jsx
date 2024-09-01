@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-refresh/only-export-components */
 // UserContext.js
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { applicationInstance } from "../axiosInstance";
@@ -13,6 +15,8 @@ export const useApplication = () => {
 // Create a provider component
 export const ApplicationProvider = ({ children }) => {
   const [applications, setApplications] = useState([]);
+  const [applicationByEmployer, setApplicationByEmployer] = useState([]);
+  const [totalApplications, setTotalApplications] = useState([]);
 
   // Fetch Applications from localStorage or initialize with empty array
   useEffect(() => {
@@ -33,6 +37,30 @@ export const ApplicationProvider = ({ children }) => {
     }
   };
 
+  const refreshDefault = async (employerId) => {
+    const res = await applicationInstance.get(`/get-all-jobs-by-employer/${employerId}`);
+    console.log(res);
+    setApplicationByEmployer(res.data);
+  };
+
+  const getAllApplicationsByEmployer = async (employerId) => {
+    try {
+      const response = await applicationInstance.get(`/get-all-jobs-by-employer/${employerId}`);
+      setApplicationByEmployer(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getAllApplicationsForJob = async (jobId) => {
+    try {
+      const response = await applicationInstance.get(`/job/${jobId}`);
+      setTotalApplications(response?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getApplicationById = (ApplicationId) => {
     const ApplicationsData = JSON.parse(localStorage.getItem("Applications")) || [];
     const Application = ApplicationsData.find((Application) => Application._id === ApplicationId);
@@ -45,6 +73,11 @@ export const ApplicationProvider = ({ children }) => {
         applications,
         refresh,
         getApplicationById,
+        getAllApplicationsByEmployer,
+        applicationByEmployer,
+        getAllApplicationsForJob,
+        totalApplications,
+        refreshDefault,
       }}
     >
       {children}

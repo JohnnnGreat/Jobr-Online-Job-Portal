@@ -13,7 +13,6 @@ const addResume = async (req, res) => {
     const newResume = new Resume({
       ...req.body,
     });
-
     // Save the new resume to the database
     await newResume.save();
 
@@ -42,6 +41,7 @@ const updateResume = async (req, res) => {
       { new: true, runValidators: true }
     );
 
+    console.log(newResume);
     if (!updatedResume) {
       return res.status(404).json({ message: "Resume not found" });
     }

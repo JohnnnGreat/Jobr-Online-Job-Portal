@@ -23,6 +23,8 @@ const EditCv = () => {
   const [searchParams] = useSearchParams();
   const isPreview = searchParams.get("preview");
   const jobid = searchParams.get("jobid");
+  const employerId = searchParams.get("employerid");
+
   const { refresh } = useApplication();
 
   const { user, setUserDetails } = useUser();
@@ -70,12 +72,14 @@ const EditCv = () => {
         coverLetter: user?.coverLetter,
         resumeUrl: `http://localhost:5173/mycv/cvview/${userId}`,
         applicationStatus: "applied",
+        employerId: employerId,
       });
 
-      console.log(response);
+      toast.success(response.data.message);
       refresh(userId);
     } catch (error) {
-      toast.error(error.response.data.msg);
+      console.log(error);
+      toast.error(error.response.data.message);
     }
   };
   return (

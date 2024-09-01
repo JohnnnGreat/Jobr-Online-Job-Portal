@@ -11,6 +11,7 @@ const SingleJob = () => {
   const { jobId } = useParams();
 
   const [job, setJob] = useState(null);
+  console.log(job);
   const { user } = useUser();
   const { getJobById, refresh } = useJob();
 
@@ -18,7 +19,7 @@ const SingleJob = () => {
     refresh();
     const jobR = getJobById(jobId);
     setJob(jobR);
-  }, [getJobById, jobId, refresh]);
+  }, []);
 
   return (
     <>
@@ -137,7 +138,7 @@ const SingleJob = () => {
               {user ? (
                 <div>
                   <Link
-                    to={`/mycv/editcv/${user._id}?preview=true&jobid=${jobId}`}
+                    to={`/mycv/editcv/${user._id}?preview=true&jobid=${jobId}&employerid=${job?.user}`}
                     className="inline-block bg-[#F77F00] py-2 px-5 rounded-md font-semibold mt-[1rem]"
                   >
                     Apply Now

@@ -10,7 +10,7 @@ export const resumeAxiosInstance = axios.create({
       : "https://jobr-online-job-portal.onrender.com/api/resume",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${userToken}`,
+
     // You can set other default headers here
   },
 });

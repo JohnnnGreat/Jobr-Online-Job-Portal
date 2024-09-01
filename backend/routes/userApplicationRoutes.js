@@ -20,4 +20,6 @@ router.put("/:applicationId", applicationController.updateApplicationStatus);
 // Route to delete an application
 router.delete("/:applicationId", applicationController.deleteApplication);
 
+router.get("/get-all-jobs-by-employer/:employerId", applicationController.getAllJobsByEmployer);
+
 module.exports = router;

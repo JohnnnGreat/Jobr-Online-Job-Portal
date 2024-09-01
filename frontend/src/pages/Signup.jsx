@@ -27,9 +27,11 @@ const Signup = () => {
       const userInformation = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo", {
         headers: { Authorization: `Bearer ${googleData.access_token}` },
       });
-      console.log(userInformation);
+
       const response = await axios.post(
-        "https://jobr-online-job-portal.onrender.com/api/auth/google",
+        import.meta.env.DEV === true
+          ? "http://localhost:7070/api/auth/google"
+          : "https://jobr-online-job-portal.onrender.com/api/auth/google",
         { userPayload: userInformation.data },
         { headers: { "Content-Type": "application/json" }, "Access-Control-Allow-Origin": "*" }
       );
