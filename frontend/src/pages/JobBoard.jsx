@@ -44,7 +44,7 @@ const JobBoard = () => {
     try {
       const response = await employerAxiosInstance.get("/jobs/getalljobs");
       console.log(response);
-      // setJobs(response.data);
+      setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
