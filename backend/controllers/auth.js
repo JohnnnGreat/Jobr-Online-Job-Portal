@@ -31,7 +31,7 @@ exports.signUp = (req, res) => {
  */
 exports.googleSignIn = async (req, res) => {
   const { userPayload } = req.body;
-  console.log(userPayload);
+
   try {
     const { sub: googleId, email, name, picture } = userPayload;
 
@@ -52,7 +52,7 @@ exports.googleSignIn = async (req, res) => {
 
       // Create a new resume record
       const resume = new Resume({ user: user.id });
-
+      console.log(resume);
       // Save both user and resume to the database
       await user.save();
       await resume.save();
@@ -73,6 +73,7 @@ exports.googleSignIn = async (req, res) => {
     // Send response with success status, token, and user info
     res.json({ success: true, sessionToken, user });
   } catch (error) {
+    console.log(error);
     res.status(401).json({ success: false, message: "Invalid token", error });
   }
 };

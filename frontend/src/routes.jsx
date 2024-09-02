@@ -75,18 +75,6 @@ const router = createBrowserRouter([
               {
                 path: "alljobs",
                 element: <EmployerAllJobs />,
-                loader: async () => {
-                  try {
-                    const employer = JSON.parse(localStorage.getItem("employer"));
-                    const response = await employerAxiosInstance.get(
-                      `/getalljobsbyemployer/${employer._id}`
-                    );
-
-                    return response;
-                  } catch (error) {
-                    return false;
-                  }
-                },
               },
             ],
           },

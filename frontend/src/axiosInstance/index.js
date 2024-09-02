@@ -29,7 +29,7 @@ export const employerAxiosInstance = axios.create({
   },
 });
 
-console.log(import.meta.env.DEV);
+
 export const jobAxiosInstance = axios.create({
   baseURL:
     import.meta.env.DEV === true

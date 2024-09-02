@@ -23,7 +23,7 @@ export const EmployerProvider = ({ children }) => {
   const refreshJobPost = async () => {
     try {
       const response = await employerAxiosInstance.get(`/getalljobsbyemployer/${employer._id}`);
-      console.lof(response);
+      console.log(response);
       localStorage.setItem("allJobs", JSON.stringify(response.data));
     } catch (error) {
       console.log(error);
@@ -59,6 +59,7 @@ export const EmployerProvider = ({ children }) => {
     // All Jobs Ny Employer
     try {
       const response = await employerAxiosInstance.get(`/getalljobsbyemployer/${user._id}`);
+      console.log(response);
       localStorage.setItem("allJobs", JSON.stringify(response.data));
     } catch (error) {
       console.log(error);
@@ -70,7 +71,7 @@ export const EmployerProvider = ({ children }) => {
     setEmployer(null);
     localStorage.removeItem("employer");
     localStorage.removeItem("employerToken");
-
+    localStorage.removeItem("allJobs");
     navigate("/employer/signin");
   };
 

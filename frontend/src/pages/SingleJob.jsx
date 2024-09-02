@@ -11,7 +11,7 @@ const SingleJob = () => {
   const { jobId } = useParams();
 
   const [job, setJob] = useState(null);
-  console.log(job);
+
   const { user } = useUser();
   const { getJobById, refresh } = useJob();
 

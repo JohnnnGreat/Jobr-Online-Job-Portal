@@ -24,10 +24,13 @@ export const Header = () => {
   const { employer, signOut } = useEmployer();
 
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("sessionToken") ? true : false);
-  const [employerIsLoggedIn] = useState(localStorage.getItem("employerToken") ? true : false);
+  const [employerIsLoggedIn, setEmployerIsLoggedIn] = useState(
+    localStorage.getItem("employerToken") ? true : false
+  );
 
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("sessionToken") ? true : false);
+    setEmployerIsLoggedIn(localStorage.getItem("employerToken") ? true : false);
   }, [user, employer]);
 
   const navigate = useNavigate();

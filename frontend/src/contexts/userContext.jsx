@@ -27,6 +27,8 @@ export const UserProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem("user");
     localStorage.removeItem("sessionToken");
+    localStorage.removeItem("jobs");
+    localStorage.removeItem("resume");
     // Optionally, remove user data from local storage or perform other cleanup actions
   };
 
