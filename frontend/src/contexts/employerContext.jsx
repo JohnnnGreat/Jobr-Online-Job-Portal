@@ -21,8 +21,12 @@ export const EmployerProvider = ({ children }) => {
   );
 
   const refreshJobPost = async () => {
-    const response = await employerAxiosInstance.get(`/getalljobsbyemployer/${employer._id}`);
-    localStorage.setItem("allJobs", JSON.stringify(response.data));
+    try {
+      const response = await employerAxiosInstance.get(`/getalljobsbyemployer/${employer._id}`);
+      localStorage.setItem("allJobs", JSON.stringify(response.data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const refreshEmployer = async (user) => {
@@ -52,9 +56,12 @@ export const EmployerProvider = ({ children }) => {
     localStorage.setItem("employerToken", JSON.stringify(sessionToken));
 
     // All Jobs Ny Employer
-
-    const response = await employerAxiosInstance.get(`/getalljobsbyemployer/${user._id}`);
-    localStorage.setItem("allJobs", JSON.stringify(response.data));
+    try {
+      const response = await employerAxiosInstance.get(`/getalljobsbyemployer/${user._id}`);
+      localStorage.setItem("allJobs", JSON.stringify(response.data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Function to handle user sign-out

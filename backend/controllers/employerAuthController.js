@@ -67,9 +67,13 @@ const login = async (req, res) => {
       return res.status(400).json({ msg: "Invalid Login Credentials" });
     }
 
-    const sessionToken = jwt.sign({ employerId: user._id, email: user.email }, "shdhdh", {
-      expiresIn: "10h",
-    });
+    const sessionToken = jwt.sign(
+      { employerId: user._id, email: user.email, isVerified: user.isVerified, isAdmin: true },
+      process.env.JWT_TOKEN,
+      {
+        expiresIn: "10h",
+      }
+    );
 
     return res.status(200).json({ sessionToken, user });
   } catch (error) {
@@ -272,6 +276,90 @@ const sendNewVerificationToken = async (req, res) => {
   }
 };
 
+/**
+ * Handles password reset request by sending an email with a reset link.
+ * @param {import("express").Request} req - The request object.
+ * @param {import("express").Response} res - The response object.
+ */
+const sendPasswordResetEmail = async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ msg: "Please provide an email address" });
+  }
+
+  try {
+    const user = await Employer.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    // Generate a reset token and expiration time
+    user.resetToken = crypto.randomBytes(32).toString("hex");
+    user.resetTokenExpiration = Date.now() + 3600000; // Token expires in 1 hour
+    await user.save();
+
+    // Send reset email
+    const resetUrl = `http://localhost:5173/employer/reset-password/${user.resetToken}`;
+    const mailOptions = {
+      from: "scholarhubbot@gmail.com",
+      to: email,
+      subject: "Password Reset Request",
+      html: `Please click the following link to reset your password: <a href="${resetUrl}">Reset your password</a>`,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.error("Error sending email:", err);
+        return res.status(500).json({ msg: "Error sending reset email" });
+      }
+      res.status(200).json({
+        msg: "Password reset email sent successfully. Please check your email.",
+      });
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
+/**
+ * Resets the user's password.
+ * @param {import("express").Request} req - The request object.
+ * @param {import("express").Response} res - The response object.
+ */
+const resetPassword = async (req, res) => {
+  const { token } = req.params;
+  const { password } = req.body;
+
+  if (!password) {
+    return res.status(400).json({ msg: "Please provide a new password" });
+  }
+
+  try {
+    const user = await Employer.findOne({
+      resetToken: token,
+      resetTokenExpiration: { $gt: Date.now() }, // Check if token is not expired
+    });
+
+    if (!user) {
+      return res.status(400).json({ msg: "Invalid or expired token" });
+    }
+
+    // Hash the new password
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
+    user.resetToken = undefined;
+    user.resetTokenExpiration = undefined;
+    await user.save();
+
+    res.status(200).json({ msg: "Password reset successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
 module.exports = {
   deleteJobById,
   signUp,
@@ -281,4 +369,6 @@ module.exports = {
   login,
   getAllJobsByEmployer,
   sendNewVerificationToken,
+  sendPasswordResetEmail,
+  resetPassword,
 };

@@ -5,23 +5,51 @@ import { Button } from "../ui/button";
 import SelectField from "../jobs/SelectField";
 import { useApplication } from "../../contexts/applicationContext";
 import { Textarea } from "../ui/textarea";
+import { toast } from "react-toastify";
 
 const EmployerApplication = ({ application }) => {
   const { getAllApplicationsForJob, totalApplications, refreshDefault } = useApplication();
+  const [text, setText] = useState("");
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     getAllApplicationsForJob(application?.jobId?._id);
   }, []);
 
   const [value, setValue] = useState("");
-  console.log(application);
 
   const onValueChange = async (value) => {
-    const response = await applicationInstance.put(`${application._id}`, {
-      applicationStatus: value,
-    });
-    console.log(response);
-    refreshDefault(application?.employerId);
+    setStatus(value.target.value);
+    // const response = await applicationInstance.put(`${application._id}`, {
+    //   applicationStatus: value.target.value,
+    // });
+  };
+
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      await applicationInstance.put(`${application._id}`, {
+        applicationStatus: status,
+        feedback: text,
+      });
+
+      toast.success(
+        "Application status has been updated successfully. A notification email has been sent to the applicant."
+      );
+
+      setValue("");
+      setText("");
+      setStatus("");
+    } catch (error) {
+      toast.error(
+        "An error occurred while updating the application status. Please try again later."
+      );
+    } finally {
+      refreshDefault(application?.employerId);
+    }
   };
   return (
     <div
@@ -103,14 +131,14 @@ const EmployerApplication = ({ application }) => {
         <SelectField
           label="Change Status"
           name={"ChangeStatus"}
-          value={value}
+          value={status}
           options={["applied", "reviewing", "shortlisted", "rejected", "accepted"]}
           onValueChange={onValueChange}
         />
         <div className="mt-[1rem]">
           <h1 className="font-semibold my-2">Add a FeedBack</h1>
-          <Textarea className="inline-block"></Textarea>
-          <Button>Send Feedback</Button>
+          <Textarea onChange={handleTextChange} className="inline-block"></Textarea>
+          <Button onClick={handleSubmit}>Send Feedback</Button>
         </div>
       </div>
     </div>

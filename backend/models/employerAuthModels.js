@@ -24,6 +24,12 @@ const EmployerSchema = new Schema({
   verificationToken: {
     type: String,
   },
+  resetToken: {
+    type: String,
+  },
+  resetTokenExpiration: {
+    type: Date,
+  },
 });
 
 // Create User Model

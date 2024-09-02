@@ -28,9 +28,8 @@ export const Header = () => {
 
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("sessionToken") ? true : false);
-  }, []);
+  }, [user, employer]);
 
-  console.log(isLoggedIn);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);

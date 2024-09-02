@@ -1,6 +1,7 @@
 // axiosInstance.js
 import axios from "axios";
 const userToken = localStorage.getItem("sessionToken");
+const employerToken = JSON.parse(localStorage.getItem("employerToken"));
 
 // Create an instance of Axios with default settings
 export const resumeAxiosInstance = axios.create({
@@ -23,6 +24,7 @@ export const employerAxiosInstance = axios.create({
 
   headers: {
     "Content-Type": "application/json",
+    Authorization: `Bearer ${employerToken}`,
     // You can set other default headers here
   },
 });

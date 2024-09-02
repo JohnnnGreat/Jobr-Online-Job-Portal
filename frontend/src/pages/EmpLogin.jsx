@@ -19,6 +19,7 @@ import { employerAxiosInstance } from "../axiosInstance";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { useEmployer } from "../contexts/employerContext";
+import { Loader2 } from "lucide-react";
 
 // Define the form schema with password validation rules
 const formSchema = z.object({
@@ -34,6 +35,7 @@ const formSchema = z.object({
 
 const EmpLogin = () => {
   const { signInOrSignUp } = useEmployer();
+  const navigate = useNavigate();
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,9 +43,9 @@ const EmpLogin = () => {
       password: "",
     },
   });
-  const navigate = useNavigate();
 
   const [passwordStrength, setPasswordStrength] = useState(0);
+  const [isSigningUp, setIsSigningUp] = useState(false);
 
   const handlePasswordChange = (event) => {
     const { value } = event.target;
@@ -51,6 +53,7 @@ const EmpLogin = () => {
   };
 
   async function onSubmit(values) {
+    setIsSigningUp(true); // Show loader
     const toastId = toast.loading("Authenticating your credentials...");
     try {
       const response = await employerAxiosInstance.post("/login", values);
@@ -61,99 +64,115 @@ const EmpLogin = () => {
         autoClose: 5000,
       });
       await signInOrSignUp(response.data);
-
-      navigate("/employer/dashboard");
+      navigate("/employer");
     } catch (error) {
       toast.update(toastId, {
-        render: error.response.data.msg,
+        render: error.response.data.msg || "An error occurred. Please try again.",
         type: "error",
         isLoading: false,
         autoClose: 5000,
       });
+    } finally {
+      setIsSigningUp(false); // Hide loader
     }
   }
 
   return (
-    <div className="h-[90vh] flex items-center justify-center ">
-      <div className="flex items-center  flex-col w-[500px]">
-        <h1 className="font-bold text-[2rem] ">Jobr.</h1>
-        <div className="border p-4 rounded-2xl bg-white">
-          <h1 className="text-[1.4rem] font-medium text-center">Create and Employer Account</h1>
+    <div className="h-[90vh] flex items-center justify-center">
+      <div className="flex flex-col items-center w-[500px]">
+        <h1 className="font-bold text-2xl">Jobr.</h1>
+        <div className="border p-4 rounded-2xl bg-white w-full">
+          <h1 className="text-lg font-medium text-center">Log in to Your Employer Account</h1>
           <p className="mt-2 text-[.8rem] text-gray-500 text-center">
-            Create an account or sign in. By continuing, you agree to our Terms of Use and Privacy
-            Policy.
+            Sign in to continue. By logging in, you agree to our
+            <Link to="/terms" className="underline text-blue-600">
+              {" "}
+              Terms of Use
+            </Link>{" "}
+            and
+            <Link to="/privacy" className="underline text-blue-600">
+              {" "}
+              Privacy Policy
+            </Link>
+            .
           </p>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit, onerror)}>
-              <div className="">
-                {" "}
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Company Email Address</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Email Address" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <div className="flex-1">
-                  {" "}
-                  {/* Password field */}
-                  <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Password</FormLabel>
-                        <FormControl className="flex items-center">
-                          <Input
-                            type={"password"} // Toggle input type based on showPassword state
-                            placeholder="Password"
-                            {...field}
-                            onChange={(e) => {
-                              field.onChange(e);
-                              handlePasswordChange(e);
-                            }}
-                          />
-                        </FormControl>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+              {/* Email field */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Company Email Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Email Address" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-                        <FormDescription className="text-[.7rem] mt-[0!important]">
-                          Password must be at least 8 characters and include lowercase, uppercase,
-                          numbers, and symbols.
-                        </FormDescription>
-                        <FormMessage className="my-[0!important]" />
-                      </FormItem>
-                    )}
-                  />
-                  {/* Password strength meter */}
-                  <div className="password-strength-meter">
-                    <p className="font-medium text-[.8rem]">Password strength:</p>
-                    <div className="strength-bars">
-                      {[...Array(5)].map((_, index) => (
-                        <span
-                          key={index}
-                          className={`strength-bar ${
-                            index < passwordStrength ? `filled-${passwordStrength}` : ""
-                          }`}
-                        ></span>
-                      ))}
-                    </div>
-                  </div>
+              {/* Password field */}
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        {...field}
+                        onChange={(e) => {
+                          field.onChange(e);
+                          handlePasswordChange(e);
+                        }}
+                      />
+                    </FormControl>
+                    <FormDescription className="text-xs mt-1">
+                      Password must be at least 8 characters and include a mix of letters, numbers,
+                      and symbols.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Forgotten Password Link */}
+              <div className="text-right mt-1">
+                <Link to="/forgot-password" className="text-xs text-blue-600 hover:underline">
+                  Forgot Password?
+                </Link>
+              </div>
+
+              {/* Password strength meter */}
+              <div className="password-strength-meter mt-1">
+                <p className="font-medium text-xs">Password strength:</p>
+                <div className="flex">
+                  {[...Array(5)].map((_, index) => (
+                    <span
+                      key={index}
+                      className={`h-2 w-1/5 mx-0.5 rounded ${
+                        index < passwordStrength ? "bg-green-500" : "bg-gray-300"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
 
-              <Button type="submit" className="block w-full mt-[.7rem]">
-                Submit
+              {/* Submit button */}
+              <Button type="submit" className="w-full mt-4 flex justify-center items-center">
+                {isSigningUp ? <Loader2 className="animate-spin" /> : "Submit"}
               </Button>
-              <p className="text-center text-gray-700 text-[.8rem] mt-2">
-                Yet to Sign in?{" "}
+
+              {/* Redirect link */}
+              <p className="text-center text-gray-700 text-xs mt-2">
+                Already have an account?{" "}
                 <Link className="hover:underline text-black" to="/employer/signin">
-                  Create an Account
+                  Log In
                 </Link>
               </p>
             </form>

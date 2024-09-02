@@ -39,7 +39,7 @@ export const ApplicationProvider = ({ children }) => {
 
   const refreshDefault = async (employerId) => {
     const res = await applicationInstance.get(`/get-all-jobs-by-employer/${employerId}`);
-    console.log(res);
+
     setApplicationByEmployer(res.data);
   };
 

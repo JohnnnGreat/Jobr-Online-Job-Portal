@@ -55,7 +55,7 @@ const router = createBrowserRouter([
           },
           { path: "signin", element: <EmpLogin /> },
           { path: "verify/:token", element: <VerifyEmployerAccount /> },
-          { path: "dashboard", element: <EmployerDashboard /> },
+
           {
             path: "/employer",
             element: <EmployerLayout />,
