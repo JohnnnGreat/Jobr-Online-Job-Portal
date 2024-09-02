@@ -10,6 +10,7 @@ import { Button } from "../components/ui/button";
 
 import HomeImage from "../../public/homeIm.jpg";
 import PatternRight from "../../public/rightP.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -70,6 +71,52 @@ const Home = () => {
               curated a selection of top positions just for you.
             </p>
           </div>
+          <section className="flex items-center justify-center p-8 md:p-16 bg-white">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left mb-8">
+                How Our Platform Works
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-5 w-5 mt-1 rounded-full border-2 border-gray-500"></div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-semibold">Step 1: Search Jobs</h3>
+                    <p className="text-gray-500">
+                      Browse through thousands of job listings tailored to your skills and
+                      preferences.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-5 w-5 mt-1 rounded-full border-2 border-gray-500"></div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-semibold">Step 2: Apply Easily</h3>
+                    <p className="text-gray-500">
+                      Submit your application with just a few clicks and track its progress in
+                      real-time.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-5 w-5 mt-1 rounded-full border-2 border-gray-500"></div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-semibold">Step 3: Get Hired</h3>
+                    <p className="text-gray-500">
+                      Connect with employers directly and land your dream job faster than ever.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 text-center md:text-left">
+                <Link
+                  to="/signup"
+                  className="bg-[#F77F00] text-white px-6 py-3 rounded-full hover:bg-orange-600"
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+          </section>
         </>
       )}
     </>

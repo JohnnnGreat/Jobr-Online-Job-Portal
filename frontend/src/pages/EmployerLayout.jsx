@@ -9,6 +9,7 @@ import { useEmployer } from "../contexts/employerContext";
 
 const EmployerLayout = () => {
   const { employer } = useEmployer();
+  const employerToken = localStorage.getItem("employerToken");
 
   const location = useLocation(); // Get current route location
 
@@ -16,7 +17,7 @@ const EmployerLayout = () => {
 
   return (
     <>
-      {employer ? (
+      {employer || employerToken ? (
         <div className="h-screen flex overflow-hidden">
           <div
             className={`bg-white w-[300px] border-r transition-all duration-150 ease-out ${
