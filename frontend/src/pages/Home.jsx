@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import JobsDisplay from "../components/JobsDisplay";
 import Filter from "../components/Filter";

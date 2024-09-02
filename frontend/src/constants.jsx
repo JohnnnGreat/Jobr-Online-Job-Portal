@@ -1,6 +1,5 @@
 const employerIsLoggedIn = localStorage.getItem("employerToken") ? true : false;
-import { Briefcase, FilePlus, House, User, Users } from "lucide-react";
-import { CirclePlus } from "lucide-react";
+import { Briefcase, FilePlus, User, Users } from "lucide-react";
 
 export const navConstants = [
   { id: 1, name: "Find Jobs", route: "/find-jobs", shouldRender: true },

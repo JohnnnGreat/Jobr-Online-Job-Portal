@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { useEmployer } from "../contexts/employerContext";

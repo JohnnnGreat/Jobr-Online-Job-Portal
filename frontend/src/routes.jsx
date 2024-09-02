@@ -11,7 +11,6 @@ import SingleJob from "./pages/SingleJob";
 import AddJob from "./pages/JobBoard";
 import EmpSignup from "./pages/EmpSignup";
 import VerifyEmployerAccount from "./pages/VerifyEmployerAccount";
-import EmployerDashboard from "./pages/EmployerDashboard";
 import JobBoard from "./pages/JobBoard";
 import EmpLogin from "./pages/EmpLogin";
 import EmployerLayout from "./pages/EmployerLayout";
@@ -23,6 +22,7 @@ import EmProfile from "./pages/EmProfile";
 import ApplicationDetails from "./pages/ApplicationDetails";
 import JobSearch from "./pages/jobSearch";
 import NotFound from "./pages/404";
+import Login from "./pages/Login";
 
 const getUserLoginStatus = () => {
   const token = JSON.parse(localStorage.getItem("sessionToken"));
@@ -45,6 +45,7 @@ const router = createBrowserRouter([
       { path: "/myapplications", element: <MyApplications /> },
       { path: "/about", element: <About />, loader: () => "Hello, World" },
       { path: "/signup", element: <Signup />, loader: getUserLoginStatus },
+      { path: "/signin", element: <Login />, loader: getUserLoginStatus },
       { path: "/profile", element: <Profile /> },
       { path: "/logout", element: <Logout /> },
       { path: "jobs/:jobId", element: <SingleJob /> },
@@ -75,11 +76,16 @@ const router = createBrowserRouter([
                 path: "alljobs",
                 element: <EmployerAllJobs />,
                 loader: async () => {
-                  const employer = JSON.parse(localStorage.getItem("employer"));
-                  const response = await employerAxiosInstance.get(
-                    `/getalljobsbyemployer/${employer._id}`
-                  );
-                  return response;
+                  try {
+                    const employer = JSON.parse(localStorage.getItem("employer"));
+                    const response = await employerAxiosInstance.get(
+                      `/getalljobsbyemployer/${employer._id}`
+                    );
+
+                    return response;
+                  } catch (error) {
+                    return false;
+                  }
                 },
               },
             ],

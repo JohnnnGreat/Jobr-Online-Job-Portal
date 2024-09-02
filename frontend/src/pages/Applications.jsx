@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 const Applications = () => {
   const { employer } = useEmployer();
   const { getAllApplicationsByEmployer, applicationByEmployer: applications } = useApplication();
+
   const employerId = employer._id;
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import JobSearchResults from "../components/headers/JobSearchResults";
 import { Link, useParams } from "react-router-dom";

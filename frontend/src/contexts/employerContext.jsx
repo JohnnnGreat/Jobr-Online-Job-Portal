@@ -23,6 +23,7 @@ export const EmployerProvider = ({ children }) => {
   const refreshJobPost = async () => {
     try {
       const response = await employerAxiosInstance.get(`/getalljobsbyemployer/${employer._id}`);
+      console.lof(response);
       localStorage.setItem("allJobs", JSON.stringify(response.data));
     } catch (error) {
       console.log(error);

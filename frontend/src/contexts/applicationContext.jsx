@@ -46,6 +46,7 @@ export const ApplicationProvider = ({ children }) => {
   const getAllApplicationsByEmployer = async (employerId) => {
     try {
       const response = await applicationInstance.get(`/get-all-jobs-by-employer/${employerId}`);
+      console.log(response);
       setApplicationByEmployer(response.data);
     } catch (error) {
       console.log(error);

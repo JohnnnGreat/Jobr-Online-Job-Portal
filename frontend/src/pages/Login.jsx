@@ -1,7 +1,6 @@
-import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
-import Divider from "../components/Divider";
+import { useGoogleLogin } from "@react-oauth/google";
+
 import { Button } from "../components/ui/button";
-import LoginForm from "../components/LoginForm";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -124,16 +123,6 @@ const Login = () => {
               </>
             )}
           </Button>
-
-          <Divider />
-          <p className="text-center">or</p>
-          <LoginForm />
-          <p className="text-center text-gray-700 text-[.8rem] mt-2">
-            Already have an account?{" "}
-            <Link className="hover:underline text-black" to="/employer/signin">
-              Sign In
-            </Link>
-          </p>
         </div>
       </div>
     </div>
