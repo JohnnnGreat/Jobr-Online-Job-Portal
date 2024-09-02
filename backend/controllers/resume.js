@@ -75,4 +75,4 @@ const getResume = async (req, res) => {
   }
 };
 
-module.exports = { addResume, updateResume, getResume };
+module.exports = { updateResume, getResume };
