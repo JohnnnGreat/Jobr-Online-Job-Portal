@@ -10,6 +10,7 @@ import { employerAxiosInstance } from "../axiosInstance";
 
 const JobBoard = () => {
   const [jobs, setJobs] = useState([]);
+
   const { employer, refreshJobPost } = useEmployer();
 
   const [newJob, setNewJob] = useState({
@@ -43,7 +44,7 @@ const JobBoard = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get("/jobs/getalljobs");
+      const response = await employerAxiosInstance.get("/jobs/getalljobs");
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -133,9 +134,9 @@ const JobBoard = () => {
       )}
       <div className="p-4">
         <h2 className="text-2xl font-bold mb-4">Current Job Postings</h2>
-        {jobs.length > 0 ? (
+        {jobs?.length > 0 ? (
           <div className="space-y-4">
-            {jobs.map((job) => (
+            {jobs?.map((job) => (
               <Card key={job._id} className="shadow-md">
                 <CardHeader>
                   <CardTitle>{job.jobName}</CardTitle>

@@ -187,6 +187,7 @@ const addJob = async (req, res) => {
 const getAllJobs = async (req, res) => {
   try {
     const jobs = await Job.find().sort({ createdAt: -1 });
+
     res.json(jobs);
   } catch (error) {
     console.error("Error fetching jobs:", error);
