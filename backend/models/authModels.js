@@ -27,7 +27,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     minlength: 8,
   },
+  phoneNumber: {
+    type: String,
 
+    match: [/^\d{10,15}$/, "Please use a valid phone number."],
+  },
   role: {
     type: String,
     enum: ["employer", "jobseeker", "admin"],
@@ -46,7 +50,28 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Resume",
   },
-
+  skills: {
+    type: [String],
+    default: [],
+  },
+  experience: [
+    {
+      company: String,
+      position: String,
+      startDate: Date,
+      endDate: Date,
+      description: String,
+    },
+  ],
+  education: [
+    {
+      institution: String,
+      degree: String,
+      startDate: Date,
+      endDate: Date,
+      description: String,
+    },
+  ],
   isVerified: {
     type: Boolean,
     default: false,
@@ -61,12 +86,6 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
-
-// Middleware to automatically update the `updatedAt` field on save
-userSchema.pre("save", function (next) {
-  this.updatedAt = Date.now();
-  next();
 });
 
 // Export the model

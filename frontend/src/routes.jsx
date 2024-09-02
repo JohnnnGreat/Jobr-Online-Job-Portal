@@ -20,7 +20,7 @@ import MyApplications from "./pages/MyApplications";
 import Applications from "./pages/Applications";
 import EmProfile from "./pages/EmProfile";
 import ApplicationDetails from "./pages/ApplicationDetails";
-import JobSearch from "./pages/jobSearch";
+import JobSearch from "./pages/JobSearch";
 import NotFound from "./pages/404";
 import Login from "./pages/Login";
 
