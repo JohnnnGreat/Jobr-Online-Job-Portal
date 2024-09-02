@@ -94,9 +94,53 @@ const uploadFile = async (req, res) => {
   }
 };
 
+/**
+ * Search for jobs by a given text in title or description.
+ * @param {Object} req - The request object containing search text in query.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>}
+ */
+const searchJobs = async (req, res) => {
+  const { searchText } = req.params;
+  console.log(searchText);
+  try {
+    // Search for jobs matching the search text in title or description
+    const jobs = await Job.find({
+      $or: [
+        { jobName: { $regex: searchText, $options: "i" } }, // Case insensitive search in the title
+        { jobDescription: { $regex: searchText, $options: "i" } }, // Case insensitive search in the description
+      ],
+    }).populate("user");
+
+    res.status(200).json(jobs);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+/**
+ * Retrieve the most recent uploaded jobs.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>}
+ */
+const getRecentJobs = async (req, res) => {
+  const { limit = 10 } = req.query; // Optional: set a limit on the number of jobs returned
+  try {
+    // Fetch jobs sorted by creation date in descending order and limit the number of results
+    const recentJobs = await Job.find().sort({ createdAt: -1 }).limit(Number(limit));
+
+    res.status(200).json(recentJobs); // Return the sorted and limited list of jobs
+  } catch (error) {
+    res.status(500).json({ message: error.message }); // Handle errors
+  }
+};
+
 module.exports = {
   getAllJobs,
   getAllJobsByUser,
   getSingleJob,
   uploadFile,
+  searchJobs,
+  getRecentJobs,
 };

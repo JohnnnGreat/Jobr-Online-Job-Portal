@@ -9,6 +9,8 @@ const {
   getAllJobsByUser,
   getSingleJob,
   uploadFile,
+  searchJobs,
+  getRecentJobs,
 } = require("../controllers/jobsController"); // Adjust the path according to your project structure
 
 const upload = multer({ dest: "uploads/" });
@@ -20,6 +22,8 @@ router.get("/jobs/user/:userId", getAllJobsByUser);
 
 // Route to get a single job by its ID
 router.get("/jobs/:jobId", getSingleJob);
+router.get("/getrecentjobs", getRecentJobs);
+router.get("/getjobbysearch/:searchText", searchJobs);
 
 router.post("/uploadfile/:userId", upload.single("file"), uploadFile);
 

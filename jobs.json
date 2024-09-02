@@ -1,0 +1,376 @@
+[
+  {
+    "id": 1,
+
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "companyName": "Google",
+    "location": "Lagos, Nigeria",
+    "jobName": "Marketing Manager",
+    "experience": 3,
+    "jobType": "Remote",
+    "salary": 0,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Develop and implement comprehensive marketing strategies to support Google’s business objectives and enhance brand visibility.",
+      "Plan, execute, and optimize marketing campaigns across various channels, including digital, social media, and traditional media.",
+      "Conduct market research and analyze consumer behavior to identify trends and opportunities for growth.",
+      "Work closely with product teams, creative departments, and external agencies to create compelling content and ensure alignment with overall marketing goals.",
+      "Monitor and analyze campaign performance, providing actionable insights and recommendations for continuous improvement."
+    ],
+    "weOffer": [
+      "Work in a cutting-edge, collaborative environment that encourages creativity and innovation.",
+      "Attractive compensation package with performance-based incentives.",
+      "Health, dental, and vision insurance, along with wellness programs and retirement plans.",
+      "Opportunities for career development and continuous learning through training programs and mentorship."
+    ],
+    "jobRequirements": [],
+    "qualifications": [],
+    "technicalSkills": [],
+    "softSkills": [],
+    "preferredSkills": [],
+    "urgentHiring": true,
+    "aboutCompany": "At Google, we believe in making information universally accessible and useful. As a global leader in technology and innovation, we strive to empower our users with cutting-edge solutions and tools that transform the way they interact with the world. Join us in shaping the future of technology and redefining the way people live and work.",
+    "jobDescription": "We are seeking a highly skilled and strategic Marketing Manager to join our dynamic team. In this role, you will be responsible for developing and executing innovative marketing strategies to enhance Google’s brand presence and drive user engagement. You will work closely with cross-functional teams to deliver impactful campaigns and contribute to our mission of delivering world-class products and services.",
+    "otherInfo": ["Remote", "Full Time", "Freelance"],
+    "applicationEmail": "johnossai20@spli.com",
+    "companyLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRB4kg1jgnqD5fEaCSHKMoUdFeTBj9CH_opA&s"
+  },
+  {
+    "id": 2,
+    "companyName": "Facebook",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Abuja, Nigeria",
+    "jobName": "Product Designer",
+    "experience": 5,
+    "jobType": "On-site",
+    "salary": 7000,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Design user-friendly interfaces for web and mobile applications.",
+      "Collaborate with product managers and engineers to define design requirements.",
+      "Create wireframes, prototypes, and high-fidelity mockups.",
+      "Conduct user research and usability testing to inform design decisions.",
+      "Stay updated with the latest design trends and technologies."
+    ],
+    "weOffer": [
+      "Competitive salary with performance bonuses.",
+      "Health insurance and retirement benefits.",
+      "Flexible working hours and remote work options.",
+      "Opportunities for career advancement and professional growth."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Design or related field",
+      "5+ years of experience in UI/UX design"
+    ],
+    "qualifications": [
+      "Proficiency in design tools such as Sketch, Figma, and Adobe Creative Suite"
+    ],
+    "technicalSkills": ["Experience with responsive design and prototyping tools"],
+    "softSkills": [
+      "Strong communication and collaboration skills",
+      "Creative problem-solving abilities"
+    ],
+    "preferredSkills": ["Knowledge of HTML/CSS"],
+    "urgentHiring": false,
+    "aboutCompany": "Facebook is a global leader in social media and technology, committed to connecting people and building communities through innovative products and services.",
+    "jobDescription": "We are looking for a talented Product Designer to join our team. You will work on designing intuitive and visually appealing interfaces for our web and mobile applications, collaborating with cross-functional teams to deliver exceptional user experiences.",
+    "otherInfo": ["On-site", "Full Time"],
+    "applicationEmail": "hr@facebook.com",
+    "companyLogo": "data:image/png;base64,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"
+  },
+  {
+    "id": 12,
+    "companyName": "Amazon",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Lagos, Nigeria",
+    "jobName": "Software Engineer",
+    "experience": 2,
+    "jobType": "Remote",
+    "salary": 6000,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Develop and maintain scalable software applications.",
+      "Collaborate with product and design teams to build features.",
+      "Write clean, efficient, and well-documented code.",
+      "Perform code reviews and ensure code quality.",
+      "Troubleshoot and debug issues as they arise."
+    ],
+    "weOffer": [
+      "Competitive salary and stock options.",
+      "Comprehensive health and wellness benefits.",
+      "Flexible working hours and remote work options.",
+      "Opportunities for career growth and skill development."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Computer Science or related field",
+      "2+ years of experience in software development"
+    ],
+    "qualifications": ["Proficiency in programming languages such as Java, Python, or JavaScript"],
+    "technicalSkills": ["Experience with cloud services and microservices architecture"],
+    "softSkills": [
+      "Strong analytical and problem-solving skills",
+      "Ability to work in a fast-paced environment"
+    ],
+    "preferredSkills": ["Knowledge of AWS or Azure"],
+    "urgentHiring": true,
+    "aboutCompany": "Amazon is a global leader in e-commerce and cloud computing, dedicated to providing innovative solutions and excellent customer service.",
+    "jobDescription": "We are seeking a motivated Software Engineer to join our development team. In this role, you will be responsible for designing, developing, and maintaining software solutions that meet our business needs.",
+    "otherInfo": ["Remote", "Full Time"],
+    "applicationEmail": "jobs@amazon.com",
+    "companyLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAWlBMVEXv8fNod4f19vhkdIRcbX52g5KPmqX29/iYoq3l6OuCj5vd4eTr7fBfcIFaa33M0dbBx82SnKe7wchtfIt8iZejq7TU2N2Ik6CwuL/Gy9Gqsrqbpa/P1NmhqrNz0egRAAADBklEQVR4nO3c63KqMBRAYUiwwUvEete27/+ax1tVAqhwEtnprO+XM62Oyw2CGTFJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJe6Mb5vqL7jjsws/wgln/dddzBZZjocuxj2HaiWNg1JL/oO3GVBA9PUzvvdF80q7AgPQ/zot1DlOnThyFBIIYWvFtrMK3mFdj30aWzFFWZjr+/qE4mFXh+YwrehsDMK34bCzmIoVEad1nC6PbD8QpXMNwOdDvKi2xMUX2jm2h7/onU2WHcZo/RCld8WN3TWZR1CeKH6LK1tTGftE2UXqpmzPGXbLwnKLkzcT8X6s/UQRReqWWX9LWs9RNGF5qOysmFb74miC9XCDUzt6k8VJtXC9jsihW9Tu5Uuq/vhvlKokuGjc1bRhWZVLdw5MWq8mU6zfNL4wKILk/W0spW6dyvOZ61p4wKd7EIzcoZot+UQVVxeA62bEmUXJuPyIV8PnDsVtxXtpikKL1S7++1U6/IZzV1g8xSFFx4i9HWMdjksNZQCGxOlFyZq8jW1VmubpZV90PngUZ8ovvDYuNt//Wy/1ZPAhsQICo+rUMa4T70msP7tJorCun8vKofKhilGWlg7wfopxlnYMMHaKUZZ2DjBuinGWPgwsDLFCAufBLqJ8RU+DXQ21OgKXwgsTzG2wpcCj1O8nsJGVvjgMNE0xbgKX5zgeYqXxKgKX57geYrnDTWmwhYTvJtiRIUtA3/fbuIpbB14mWI0hR0Cz1OMpbBT4CkxiaOwY+BpQ42isNVhwk283hJc2HmC5Va5hf8xwTgK/UxQcKGvQLGF3gKlFvoLFFroMVBmoc9AkYWeDhNyC1Xh9aJLeYV+Jyiw0Os+KLHQe6C0Qv+BwgoDBMoqDBEoqtCECJRUOPz2e5gQV2jnYa7qllOYBvr5CEGFgVBIIYXPmJ/ghZueZ+hexOWd+w3q9ycuwg5R2377DsapDflbX7rTFah+TbajQSij/aT/wNNF26FUvoELAAAAAAAAAAAAAAAAAAAAAAAAAAAA4G/4B9L3P1vg3y4/AAAAAElFTkSuQmCC"
+  },
+  {
+    "id": 14,
+    "companyName": "Microsoft",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Enugu, Nigeria",
+    "jobName": "Data Analyst",
+    "experience": 4,
+    "jobType": "On-site",
+    "salary": 8000,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Analyze large datasets to derive actionable insights.",
+      "Develop and maintain data dashboards and reports.",
+      "Collaborate with business stakeholders to understand data needs.",
+      "Ensure data accuracy and integrity across various sources.",
+      "Present findings and recommendations to senior management."
+    ],
+    "weOffer": [
+      "Attractive salary package with bonuses.",
+      "Comprehensive health insurance and retirement plans.",
+      "Opportunities for career advancement and training.",
+      "A dynamic and inclusive work environment."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Data Science, Statistics, or related field",
+      "4+ years of experience in data analysis"
+    ],
+    "qualifications": ["Proficiency in data analysis tools like Excel, SQL, and Python"],
+    "technicalSkills": ["Experience with data visualization tools such as Power BI or Tableau"],
+    "softSkills": [
+      "Strong analytical and critical thinking skills",
+      "Excellent communication and presentation skills"
+    ],
+    "preferredSkills": ["Knowledge of machine learning techniques"],
+    "urgentHiring": false,
+    "aboutCompany": "Microsoft is a leading global technology company, known for its innovative software and hardware products. We are committed to empowering individuals and organizations through technology.",
+    "jobDescription": "We are looking for a skilled Data Analyst to join our team. You will be responsible for analyzing data, creating reports, and providing insights to support business decisions and strategies.",
+    "otherInfo": ["On-site", "Full Time"],
+    "applicationEmail": "careers@microsoft.com",
+    "companyLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAWlBMVEXv8fNod4f19vhkdIRcbX52g5KPmqX29/iYoq3l6OuCj5vd4eTr7fBfcIFaa33M0dbBx82SnKe7wchtfIt8iZejq7TU2N2Ik6CwuL/Gy9Gqsrqbpa/P1NmhqrNz0egRAAADBklEQVR4nO3c63KqMBRAYUiwwUvEete27/+ax1tVAqhwEtnprO+XM62Oyw2CGTFJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJe6Mb5vqL7jjsws/wgln/dddzBZZjocuxj2HaiWNg1JL/oO3GVBA9PUzvvdF80q7AgPQ/zot1DlOnThyFBIIYWvFtrMK3mFdj30aWzFFWZjr+/qE4mFXh+YwrehsDMK34bCzmIoVEad1nC6PbD8QpXMNwOdDvKi2xMUX2jm2h7/onU2WHcZo/RCld8WN3TWZR1CeKH6LK1tTGftE2UXqpmzPGXbLwnKLkzcT8X6s/UQRReqWWX9LWs9RNGF5qOysmFb74miC9XCDUzt6k8VJtXC9jsihW9Tu5Uuq/vhvlKokuGjc1bRhWZVLdw5MWq8mU6zfNL4wKILk/W0spW6dyvOZ61p4wKd7EIzcoZot+UQVVxeA62bEmUXJuPyIV8PnDsVtxXtpikKL1S7++1U6/IZzV1g8xSFFx4i9HWMdjksNZQCGxOlFyZq8jW1VmubpZV90PngUZ8ovvDYuNt//Wy/1ZPAhsQICo+rUMa4T70msP7tJorCun8vKofKhilGWlg7wfopxlnYMMHaKUZZ2DjBuinGWPgwsDLFCAufBLqJ8RU+DXQ21OgKXwgsTzG2wpcCj1O8nsJGVvjgMNE0xbgKX5zgeYqXxKgKX57geYrnDTWmwhYTvJtiRIUtA3/fbuIpbB14mWI0hR0Cz1OMpbBT4CkxiaOwY+BpQ42isNVhwk283hJc2HmC5Va5hf8xwTgK/UxQcKGvQLGF3gKlFvoLFFroMVBmoc9AkYWeDhNyC1Xh9aJLeYV+Jyiw0Os+KLHQe6C0Qv+BwgoDBMoqDBEoqtCECJRUOPz2e5gQV2jnYa7qllOYBvr5CEGFgVBIIYXPmJ/ghZueZ+hexOWd+w3q9ycuwg5R2377DsapDflbX7rTFah+TbajQSij/aT/wNNF26FUvoELAAAAAAAAAAAAAAAAAAAAAAAAAAAA4G/4B9L3P1vg3y4/AAAAAElFTkSuQmCC"
+  },
+  {
+    "id": 6,
+    "companyName": "Oracle",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Ibadan, Nigeria",
+    "jobName": "Database Administrator",
+    "experience": 6,
+    "jobType": "Remote",
+    "salary": 8500,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Manage and maintain database systems.",
+      "Ensure database performance, security, and availability.",
+      "Perform regular backups and recovery operations.",
+      "Optimize database queries and resolve performance issues.",
+      "Collaborate with developers to design and implement database solutions."
+    ],
+    "weOffer": [
+      "Attractive salary with performance bonuses.",
+      "Comprehensive health and dental coverage.",
+      "Flexible work arrangements and remote work options.",
+      "Opportunities for career growth and skill development."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Computer Science or related field",
+      "6+ years of experience in database administration"
+    ],
+    "qualifications": [
+      "Proficiency in database management systems such as Oracle, MySQL, or SQL Server"
+    ],
+    "technicalSkills": ["Experience with database tuning and optimization"],
+    "softSkills": ["Strong problem-solving skills", "Excellent attention to detail"],
+    "preferredSkills": ["Certification in database management"],
+    "urgentHiring": true,
+    "aboutCompany": "Oracle is a global leader in cloud applications and platform services. We are dedicated to providing innovative technology solutions that drive business success.",
+    "jobDescription": "We are seeking an experienced Database Administrator to manage our database systems, ensure their performance and security, and support our development teams with database solutions.",
+    "otherInfo": ["Remote", "Full Time"],
+    "applicationEmail": "jobs@oracle.com",
+    "companyLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAWlBMVEXv8fNod4f19vhkdIRcbX52g5KPmqX29/iYoq3l6OuCj5vd4eTr7fBfcIFaa33M0dbBx82SnKe7wchtfIt8iZejq7TU2N2Ik6CwuL/Gy9Gqsrqbpa/P1NmhqrNz0egRAAADBklEQVR4nO3c63KqMBRAYUiwwUvEete27/+ax1tVAqhwEtnprO+XM62Oyw2CGTFJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJe6Mb5vqL7jjsws/wgln/dddzBZZjocuxj2HaiWNg1JL/oO3GVBA9PUzvvdF80q7AgPQ/zot1DlOnThyFBIIYWvFtrMK3mFdj30aWzFFWZjr+/qE4mFXh+YwrehsDMK34bCzmIoVEad1nC6PbD8QpXMNwOdDvKi2xMUX2jm2h7/onU2WHcZo/RCld8WN3TWZR1CeKH6LK1tTGftE2UXqpmzPGXbLwnKLkzcT8X6s/UQRReqWWX9LWs9RNGF5qOysmFb74miC9XCDUzt6k8VJtXC9jsihW9Tu5Uuq/vhvlKokuGjc1bRhWZVLdw5MWq8mU6zfNL4wKILk/W0spW6dyvOZ61p4wKd7EIzcoZot+UQVVxeA62bEmUXJuPyIV8PnDsVtxXtpikKL1S7++1U6/IZzV1g8xSFFx4i9HWMdjksNZQCGxOlFyZq8jW1VmubpZV90PngUZ8ovvDYuNt//Wy/1ZPAhsQICo+rUMa4T70msP7tJorCun8vKofKhilGWlg7wfopxlnYMMHaKUZZ2DjBuinGWPgwsDLFCAufBLqJ8RU+DXQ21OgKXwgsTzG2wpcCj1O8nsJGVvjgMNE0xbgKX5zgeYqXxKgKX57geYrnDTWmwhYTvJtiRIUtA3/fbuIpbB14mWI0hR0Cz1OMpbBT4CkxiaOwY+BpQ42isNVhwk283hJc2HmC5Va5hf8xwTgK/UxQcKGvQLGF3gKlFvoLFFroMVBmoc9AkYWeDhNyC1Xh9aJLeYV+Jyiw0Os+KLHQe6C0Qv+BwgoDBMoqDBEoqtCECJRUOPz2e5gQV2jnYa7qllOYBvr5CEGFgVBIIYXPmJ/ghZueZ+hexOWd+w3q9ycuwg5R2377DsapDflbX7rTFah+TbajQSij/aT/wNNF26FUvoELAAAAAAAAAAAAAAAAAAAAAAAAAAAA4G/4B9L3P1vg3y4/AAAAAElFTkSuQmCC"
+  },
+  {
+    "id": 7,
+    "companyName": "Salesforce",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Port Harcourt, Nigeria",
+    "jobName": "Business Analyst",
+    "experience": 4,
+    "jobType": "On-site",
+    "salary": 7000,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Analyze business processes and identify areas for improvement.",
+      "Develop and document business requirements and specifications.",
+      "Collaborate with stakeholders to define project goals and deliverables.",
+      "Conduct data analysis and create reports to support decision-making.",
+      "Facilitate meetings and presentations to communicate findings and recommendations."
+    ],
+    "weOffer": [
+      "Competitive salary with performance bonuses.",
+      "Comprehensive benefits package, including health and wellness programs.",
+      "Opportunities for career advancement and skill development.",
+      "A dynamic and collaborative work environment."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Business Administration or related field",
+      "4+ years of experience in business analysis"
+    ],
+    "qualifications": ["Proficiency in business analysis tools and methodologies"],
+    "technicalSkills": ["Experience with data analysis and reporting tools"],
+    "softSkills": [
+      "Strong analytical and communication skills",
+      "Ability to work effectively with cross-functional teams"
+    ],
+    "preferredSkills": ["Certification in business analysis"],
+    "urgentHiring": false,
+    "aboutCompany": "Salesforce is a global leader in customer relationship management (CRM) software, dedicated to helping businesses of all sizes improve their customer interactions and achieve their goals.",
+    "jobDescription": "We are looking for a skilled Business Analyst to join our team. You will be responsible for analyzing business processes, defining requirements, and providing insights to support our projects and initiatives.",
+    "otherInfo": ["On-site", "Full Time"],
+    "applicationEmail": "careers@salesforce.com",
+    "companyLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAWlBMVEXv8fNod4f19vhkdIRcbX52g5KPmqX29/iYoq3l6OuCj5vd4eTr7fBfcIFaa33M0dbBx82SnKe7wchtfIt8iZejq7TU2N2Ik6CwuL/Gy9Gqsrqbpa/P1NmhqrNz0egRAAADBklEQVR4nO3c63KqMBRAYUiwwUvEete27/+ax1tVAqhwEtnprO+XM62Oyw2CGTFJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJe6Mb5vqL7jjsws/wgln/dddzBZZjocuxj2HaiWNg1JL/oO3GVBA9PUzvvdF80q7AgPQ/zot1DlOnThyFBIIYWvFtrMK3mFdj30aWzFFWZjr+/qE4mFXh+YwrehsDMK34bCzmIoVEad1nC6PbD8QpXMNwOdDvKi2xMUX2jm2h7/onU2WHcZo/RCld8WN3TWZR1CeKH6LK1tTGftE2UXqpmzPGXbLwnKLkzcT8X6s/UQRReqWWX9LWs9RNGF5qOysmFb74miC9XCDUzt6k8VJtXC9jsihW9Tu5Uuq/vhvlKokuGjc1bRhWZVLdw5MWq8mU6zfNL4wKILk/W0spW6dyvOZ61p4wKd7EIzcoZot+UQVVxeA62bEmUXJuPyIV8PnDsVtxXtpikKL1S7++1U6/IZzV1g8xSFFx4i9HWMdjksNZQCGxOlFyZq8jW1VmubpZV90PngUZ8ovvDYuNt//Wy/1ZPAhsQICo+rUMa4T70msP7tJorCun8vKofKhilGWlg7wfopxlnYMMHaKUZZ2DjBuinGWPgwsDLFCAufBLqJ8RU+DXQ21OgKXwgsTzG2wpcCj1O8nsJGVvjgMNE0xbgKX5zgeYqXxKgKX57geYrnDTWmwhYTvJtiRIUtA3/fbuIpbB14mWI0hR0Cz1OMpbBT4CkxiaOwY+BpQ42isNVhwk283hJc2HmC5Va5hf8xwTgK/UxQcKGvQLGF3gKlFvoLFFroMVBmoc9AkYWeDhNyC1Xh9aJLeYV+Jyiw0Os+KLHQe6C0Qv+BwgoDBMoqDBEoqtCECJRUOPz2e5gQV2jnYa7qllOYBvr5CEGFgVBIIYXPmJ/ghZueZ+hexOWd+w3q9ycuwg5R2377DsapDflbX7rTFah+TbajQSij/aT/wNNF26FUvoELAAAAAAAAAAAAAAAAAAAAAAAAAAAA4G/4B9L3P1vg3y4/AAAAAElFTkSuQmCC"
+  },
+  {
+    "id": 8,
+    "companyName": "Adobe",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Benin City, Nigeria",
+    "jobName": "UX/UI Designer",
+    "experience": 3,
+    "jobType": "Remote",
+    "salary": 6500,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Design intuitive and engaging user interfaces for web and mobile applications.",
+      "Create wireframes, prototypes, and high-fidelity mockups.",
+      "Conduct user research and usability testing to inform design decisions.",
+      "Collaborate with product managers and developers to ensure design feasibility.",
+      "Stay updated with industry trends and design best practices."
+    ],
+    "weOffer": [
+      "Competitive salary and stock options.",
+      "Comprehensive health and wellness benefits.",
+      "Flexible working hours and remote work options.",
+      "Opportunities for career growth and skill development."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Design or related field",
+      "3+ years of experience in UX/UI design"
+    ],
+    "qualifications": ["Proficiency in design tools such as Adobe XD, Figma, or Sketch"],
+    "technicalSkills": ["Experience with responsive and adaptive design"],
+    "softSkills": [
+      "Strong problem-solving and communication skills",
+      "Ability to work independently and in a team"
+    ],
+    "preferredSkills": ["Knowledge of HTML/CSS"],
+    "urgentHiring": true,
+    "aboutCompany": "Adobe is a global leader in digital media and marketing solutions, committed to providing creative tools and technologies that empower individuals and organizations to achieve their goals.",
+    "jobDescription": "We are seeking a talented UX/UI Designer to join our team. In this role, you will design user-friendly interfaces, conduct user research, and collaborate with cross-functional teams to deliver exceptional user experiences.",
+    "otherInfo": ["Remote", "Full Time"],
+    "applicationEmail": "jobs@adobe.com",
+    "companyLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Qm9StxhtDs_tEqaXKh7kD5bJ2tMOwvG0Gg&s"
+  },
+  {
+    "id": 9,
+    "companyName": "Intel",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Kaduna, Nigeria",
+    "jobName": "Hardware Engineer",
+    "experience": 6,
+    "jobType": "On-site",
+    "salary": 9000,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Design and develop hardware components and systems.",
+      "Conduct testing and debugging of hardware prototypes.",
+      "Collaborate with engineering teams to integrate hardware with software.",
+      "Ensure compliance with industry standards and regulations.",
+      "Prepare technical documentation and reports."
+    ],
+    "weOffer": [
+      "Competitive salary with performance-based incentives.",
+      "Comprehensive health, dental, and vision benefits.",
+      "Opportunities for career advancement and professional development.",
+      "A supportive and innovative work environment."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Electrical Engineering or related field",
+      "6+ years of experience in hardware design"
+    ],
+    "qualifications": ["Proficiency in hardware design tools and methodologies"],
+    "technicalSkills": ["Experience with PCB design and hardware debugging"],
+    "softSkills": [
+      "Strong analytical and problem-solving skills",
+      "Ability to work collaboratively in a team"
+    ],
+    "preferredSkills": ["Knowledge of embedded systems"],
+    "urgentHiring": false,
+    "aboutCompany": "Intel is a global leader in semiconductor technology, dedicated to developing innovative hardware solutions that drive technological advancements and improve people's lives.",
+    "jobDescription": "We are looking for an experienced Hardware Engineer to join our team. You will be responsible for designing and developing hardware components, conducting testing, and ensuring compliance with industry standards.",
+    "otherInfo": ["On-site", "Full Time"],
+    "applicationEmail": "careers@intel.com",
+    "companyLogo": "data:image/png;base64,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"
+  },
+  {
+    "id": 10,
+    "companyName": "NVIDIA",
+    "user": "66d18b2b0fd6d07313c7ff80",
+    "location": "Jos, Nigeria",
+    "jobName": "Machine Learning Engineer",
+    "experience": 4,
+    "jobType": "Remote",
+    "salary": 8000,
+    "companyVerified": true,
+    "currency": "$",
+    "jobResponsibilities": [
+      "Develop and implement machine learning models and algorithms.",
+      "Collaborate with data scientists and engineers to integrate ML solutions.",
+      "Analyze and preprocess large datasets for training and testing models.",
+      "Evaluate and optimize model performance and accuracy.",
+      "Stay updated with the latest advancements in machine learning and AI."
+    ],
+    "weOffer": [
+      "Competitive salary and equity options.",
+      "Comprehensive health and wellness benefits.",
+      "Flexible working hours and remote work options.",
+      "Opportunities for career advancement and professional development."
+    ],
+    "jobRequirements": [
+      "Bachelor's degree in Computer Science, Mathematics, or related field",
+      "4+ years of experience in machine learning"
+    ],
+    "qualifications": ["Proficiency in programming languages such as Python, R, or Java"],
+    "technicalSkills": ["Experience with machine learning frameworks and libraries"],
+    "softSkills": [
+      "Strong problem-solving and analytical skills",
+      "Ability to work independently and in a team"
+    ],
+    "preferredSkills": ["Experience with deep learning and neural networks"],
+    "urgentHiring": true,
+    "aboutCompany": "NVIDIA is a global leader in visual computing and AI technology, committed to driving innovation in graphics, gaming, and artificial intelligence through cutting-edge solutions.",
+    "jobDescription": "We are seeking a talented Machine Learning Engineer to join our team. You will be responsible for developing and implementing ML models, collaborating with cross-functional teams, and optimizing model performance.",
+    "otherInfo": ["Remote", "Full Time"],
+    "applicationEmail": "johnossai20@gmail.com",
+    "companyLogo": "data:image/jpeg;base64,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"
+  }
+]

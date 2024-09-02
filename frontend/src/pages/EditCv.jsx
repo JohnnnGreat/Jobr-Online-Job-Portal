@@ -12,11 +12,11 @@ import SocialLinks from "../components/forms/SocialLinks";
 import Divider from "../components/Divider";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import { useState } from "react";
 import { toast } from "react-toastify";
 import { applicationInstance, jobAxiosInstance } from "../axiosInstance";
 import { useUser } from "../contexts/userContext";
 import { useApplication } from "../contexts/applicationContext";
+import { Helmet } from "react-helmet";
 
 const EditCv = () => {
   const { userId } = useParams();
@@ -84,6 +84,19 @@ const EditCv = () => {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{`Edit CV | ${user?.firstName} ${user?.lastName}`}</title>
+        <meta
+          name="description"
+          content={`Edit the CV for ${user?.firstName} ${user?.lastName}.`}
+        />
+        <meta
+          name="keywords"
+          content="CV, resume, job application, professional profile, edit CV"
+        />
+        <meta name="author" content={`${user?.firstName} ${user?.lastName}`} />
+      </Helmet>
       <CVHeader isPreview={isPreview} />
       <div className="max-w-5xl mx-auto p-2 flex justify-center bg-white rounded-lg mt-[1rem]">
         <Card className="w-full max-w-4xl  bg-white rounded-lg">

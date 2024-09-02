@@ -127,7 +127,7 @@ const Signup = () => {
 
           <Divider />
           <p className="text-center">or</p>
-          <LoginForm />
+          {/* <LoginForm /> */}
           <p className="text-center text-gray-700 text-[.8rem] mt-2">
             Already have an account?{" "}
             <Link className="hover:underline text-black" to="/employer/signin">

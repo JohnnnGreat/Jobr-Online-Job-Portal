@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 const MyApplications = () => {
   const { applications, refresh } = useApplication();
 
+  console.log(applications);
+
   const { user } = useUser();
   React.useEffect(() => {
     refresh(user._id);
@@ -26,9 +28,9 @@ const MyApplications = () => {
         <div className="text-center text-gray-600">No applications found.</div>
       ) : (
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {applications.map((application) => (
+          {applications?.map((application) => (
             <li key={application._id} className="bg-white border p-4 rounded-md">
-              <h2 className="text-xl font-semibold">{application.jobId.jobName}</h2>
+              <h2 className="text-xl font-semibold">{application.jobId?.jobName}</h2>
               <p className="text-gray-400 font-light">
                 Status:{" "}
                 {application?.applicationStatus === "applied" && (

@@ -21,6 +21,8 @@ import MyApplications from "./pages/MyApplications";
 import Applications from "./pages/Applications";
 import EmProfile from "./pages/EmProfile";
 import ApplicationDetails from "./pages/ApplicationDetails";
+import JobSearch from "./pages/jobSearch";
+import NotFound from "./pages/404";
 
 const getUserLoginStatus = () => {
   const token = JSON.parse(localStorage.getItem("sessionToken"));
@@ -36,8 +38,10 @@ const router = createBrowserRouter([
       const user = localStorage.getItem("user");
       return !!(token && user);
     },
+
     children: [
       { path: "/", element: <Home /> },
+      { path: "/jobsearch/:jobid", element: <JobSearch /> },
       { path: "/myapplications", element: <MyApplications /> },
       { path: "/about", element: <About />, loader: () => "Hello, World" },
       { path: "/signup", element: <Signup />, loader: getUserLoginStatus },
@@ -90,6 +94,11 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+    status: 404,
   },
 ]);
 

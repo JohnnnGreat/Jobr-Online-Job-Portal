@@ -5,6 +5,7 @@ import { Separator } from "../components/ui/separator";
 import { useEmployer } from "../contexts/employerContext";
 import JobCardEmp from "../components/all/JobCardEmp";
 import NoJobsUploaded from "../components/jobs/NoJobsUploaded";
+import { Helmet } from "react-helmet";
 
 const EmployerAllJobs = () => {
   const { allJobsByEmployer: jobs, getSearchResults, refreshJobPost } = useEmployer();
@@ -15,6 +16,10 @@ const EmployerAllJobs = () => {
 
   return (
     <div className="max-w-[90%] lg:max-w-[80%] mx-auto mt-6">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Employer | All Applications</title>
+      </Helmet>
       <div className="my-4">
         <h1 className="text-2xl font-semibold mb-4">My Added Jobs</h1>
         <div className="flex flex-col sm:flex-row gap-3">

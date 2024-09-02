@@ -6,6 +6,7 @@ import { resumeAxiosInstance } from "../axiosInstance";
 import CVHeader from "../components/cv/CVHeader";
 import ProfileSection from "../components/cv/ProfileSection";
 import ContactSection from "../components/cv/ContactSection";
+import { Helmet } from "react-helmet";
 
 const CVView = () => {
   const [resume, setResume] = useState(null);
@@ -35,6 +36,16 @@ const CVView = () => {
 
   return (
     <div className="bg-white min-h-screen p-8">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{`CV View | ${resume?.firstName} ${resume?.lastName}`}</title>
+        <meta
+          name="description"
+          content={`View the CV of ${resume?.firstName} ${resume?.lastName}.`}
+        />
+        <meta name="keywords" content="CV, resume, job application, professional profile" />
+        <meta name="author" content={`${resume?.firstName} ${resume?.lastName}`} />
+      </Helmet>
       <div ref={cvRef} className="max-w-4xl mx-auto bg-white border rounded-lg overflow-hidden">
         <CVHeader handleDownloadCV={handleDownloadCV} userId={userId} />
         <div className="p-8">

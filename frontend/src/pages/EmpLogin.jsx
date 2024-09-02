@@ -20,6 +20,7 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { useEmployer } from "../contexts/employerContext";
 import { Loader2 } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 // Define the form schema with password validation rules
 const formSchema = z.object({
@@ -79,6 +80,19 @@ const EmpLogin = () => {
 
   return (
     <div className="h-[90vh] flex items-center justify-center">
+      <Helmet>
+        <meta
+          name="description"
+          content="Log in to your Jobr employer account to manage job postings and review applications. Secure login with email and password."
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Your Company Name" />
+        <meta property="og:title" content="Jobr Employer Login" />
+        <meta
+          property="og:description"
+          content="Securely log in to your Jobr employer account to access job management features and view applications."
+        />
+      </Helmet>
       <div className="flex flex-col items-center w-[500px]">
         <h1 className="font-bold text-2xl">Jobr.</h1>
         <div className="border p-4 rounded-2xl bg-white w-full">

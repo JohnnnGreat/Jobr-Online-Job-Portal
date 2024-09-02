@@ -10,17 +10,42 @@ import { Button } from "../components/ui/button";
 
 import HomeImage from "../../public/homeIm.jpg";
 import PatternRight from "../../public/rightP.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { jobAxiosInstance } from "../axiosInstance";
+import { toast } from "react-toastify";
+import JobsCard from "../components/JobsCard";
 
 const Home = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const employer = JSON.parse(localStorage.getItem("employer"));
-
+  const [searchText, setSearchText] = useState("");
   const [authenticationExists, setAuthenticationExists] = useState(true);
+  const navigate = useNavigate();
+  const handleSearchText = (e) => {
+    setSearchText(e.target.value);
+  };
 
+  const handleSearchJob = async () => {
+    navigate(`/jobSearch/${searchText}`);
+  };
+  const [recentJobs, setRecentJobs] = useState([]);
+  const limit = 2;
+  useEffect(() => {
+    const getRecentJobs = async () => {
+      try {
+        const response = await jobAxiosInstance.get(`/getrecentjobs?limit=${limit}`);
+        console.log(response);
+        setRecentJobs(response.data);
+      } catch (error) {
+        toast.error("Error fetching jobs. Please try again later.");
+      }
+    };
+
+    getRecentJobs();
+  }, []);
   useEffect(() => {
     setAuthenticationExists(!authenticationExists);
-  }, [user, employer, authenticationExists, setAuthenticationExists]);
+  }, [user, employer, setAuthenticationExists]);
   return (
     <>
       {user || employer ? (
@@ -34,7 +59,7 @@ const Home = () => {
       ) : (
         <>
           <div className="bg-[#FEFCF2] pt-16 relative p-3">
-            {/* Image pattern on the left for larger screens */}
+            {/* Image pattern on the left for larger screens */}s
             <img
               src={PatternRight}
               className="hidden lg:block h-full absolute left-[-5rem] top-0"
@@ -58,11 +83,15 @@ const Home = () => {
                     {/* Responsive input width */}
                     <Input
                       placeholder="Enter a Job title"
+                      onChange={handleSearchText}
                       className="w-full sm:w-[300px] md:w-[400px] border-none"
                     />
                   </div>
                   {/* Responsive button with padding adjustment */}
-                  <Button className="bg-[#F77F00] w-full sm:w-auto px-6 py-2 mt-2 sm:mt-0">
+                  <Button
+                    onClick={handleSearchJob}
+                    className="bg-[#F77F00] w-full sm:w-auto px-6 py-2 mt-2 sm:mt-0"
+                  >
                     Search
                   </Button>
                 </div>
@@ -75,14 +104,22 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="h-screen bg-[#F9F9F9]">
-            <h1>Featured Jobs</h1>
-            <p>
-              Explore the latest and most sought-after job openings from leading companies. We've
-              curated a selection of top positions just for you.
-            </p>
+          <div className="h-screen bg-[#ffffff] flex items-center justify-center">
+            <div className="max-w-[900px] mx-auto">
+              {" "}
+              <h1 className="text-center text-[1.3rem] font-semibold">Featured Jobs</h1>
+              <p className="max-w-[800px] text-gray-400 mx-auto text-center">
+                Explore the latest and most sought-after job openings from leading companies. We've
+                curated a selection of top positions just for you.
+              </p>
+              <div className="grid mt-[1rem] grid-cols-1 md:grid-cols-2 gap-4">
+                {recentJobs.map((job) => (
+                  <JobsCard key={job._id} jobInfo={job} />
+                ))}
+              </div>
+            </div>
           </div>
-          <section className="flex items-center justify-center p-8 md:p-16 bg-white">
+          <section className="flex items-center justify-center p-8 md:p-16 bg-[#fafafa]">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left mb-8">
                 How Our Platform Works
