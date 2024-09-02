@@ -36,8 +36,6 @@ const JobBoard = () => {
     companyLogo: "",
   });
 
-  const [value, setValue] = useState("");
-
   useEffect(() => {
     fetchJobs();
   }, []);
