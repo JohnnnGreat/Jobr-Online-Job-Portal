@@ -6,6 +6,7 @@ import { Badge } from "../components/ui/badge";
 import { useEmployer } from "../contexts/employerContext";
 import { Mail } from "lucide-react";
 import JobForm from "../components/jobs/JobForm";
+import { employerAxiosInstance } from "../axiosInstance";
 
 const JobBoard = () => {
   const [jobs, setJobs] = useState([]);
@@ -42,7 +43,7 @@ const JobBoard = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get("http://localhost:7070/api/employer/jobs/getalljobs");
+      const response = await axios.get("/jobs/getalljobs");
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -70,7 +71,7 @@ const JobBoard = () => {
     console.log(newJob);
     e.preventDefault();
     try {
-      await axios.post("http://localhost:7070/api/employer/jobs/add", {
+      await employerAxiosInstance.post("/jobs/add", {
         ...newJob,
         user: employer._id,
       });
