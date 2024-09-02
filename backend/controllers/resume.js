@@ -6,22 +6,22 @@ const Resume = require("../models/resumeModel");
  * @param {Object} res - The response object.
  * @returns {Promise<void>}
  */
-const addResume = async (req, res) => {
-  console.log(req.body);
-  try {
-    // Create a new resume document
-    const newResume = new Resume({
-      ...req.body,
-    });
-    // Save the new resume to the database
-    await newResume.save();
+// const addResume = async (req, res) => {
+//   console.log(req.body);
+//   try {
+//     // Create a new resume document
+//     const newResume = new Resume({
+//       ...req.body,
+//     });
+//     // Save the new resume to the database
+//     await newResume.save();
 
-    res.status(201).json({ message: "Resume added successfully", resume: newResume });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Failed to add resume", error: error.message });
-  }
-};
+//     res.status(201).json({ message: "Resume added successfully", resume: newResume });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Failed to add resume", error: error.message });
+//   }
+// };
 
 /**
  * Controller to update an existing resume.
