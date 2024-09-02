@@ -52,7 +52,7 @@ exports.googleSignIn = async (req, res) => {
 
       // Create a new resume record
       const resume = new Resume({ user: user.id });
-      console.log(resume);
+
       // Save both user and resume to the database
       await user.save();
       await resume.save();
