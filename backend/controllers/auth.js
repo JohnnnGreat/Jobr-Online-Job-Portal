@@ -73,7 +73,91 @@ exports.googleSignIn = async (req, res) => {
     // Send response with success status, token, and user info
     res.json({ success: true, sessionToken, user });
   } catch (error) {
-    
     res.status(401).json({ success: false, message: "Invalid token", error });
+  }
+};
+
+/**
+ * Handle user sign-in with email and password.
+ * Verifies the user's credentials and returns a session token.
+ *
+ * @param {Object} req - The request object containing email and password.
+ * @param {Object} res - The response object.
+ */
+exports.emailSignIn = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Find the user by email
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ success: false, message: "Invalid credentials" });
+    }
+
+    // Check if the provided password matches the hashed password in the database
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ success: false, message: "Invalid credentials" });
+    }
+
+    // Generate a session token for the user
+    const sessionToken = jwt.sign({ userId: user._id, email: user.email }, "shdhdh", {
+      expiresIn: "10h",
+    });
+
+    // Send response with success status, token, and user info
+    res.json({ success: true, sessionToken, user });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Server error", error });
+  }
+};
+
+/**
+ * Handle user sign-up with email and password.
+ * Hashes the password and saves the user in the database.
+ * @param {Object} req - The request object containing email, password, firstName, and lastName.
+ * @param {Object} res - The response object.
+ */
+exports.emailSignUp = async (req, res) => {
+  const { email, password, firstName, lastName } = req.body;
+
+  try {
+    // Check if the user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ success: false, message: "User already exists" });
+    }
+
+    // Hash the password before saving to the database
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user
+    const user = new User({
+      email,
+      password: hashedPassword,
+      firstName,
+      lastName,
+    });
+
+    // Create a new resume record
+    const resume = new Resume({ user: user.id });
+
+    // Save both user and resume to the database
+    await user.save();
+    await resume.save();
+
+    // Update user with the resume ID
+    user.resumeId = resume._id;
+    await user.save();
+
+    // Generate a session token for the user
+    const sessionToken = jwt.sign({ userId: user._id, email: user.email }, "shdhdh", {
+      expiresIn: "10h",
+    });
+
+    // Send response with success status, token, and user info
+    res.status(201).json({ success: true, sessionToken, user });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Server error", error });
   }
 };

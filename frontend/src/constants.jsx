@@ -4,12 +4,7 @@ import { CirclePlus } from "lucide-react";
 
 export const navConstants = [
   { id: 1, name: "Find Jobs", route: "/find-jobs", shouldRender: true },
-  {
-    id: 2,
-    name: "Find Companies",
-    route: "/find-companies",
-    shouldRender: true,
-  },
+
   { id: 3, name: "Upload Jobs", route: "/employer/addjob", shouldRender: true },
 
   {

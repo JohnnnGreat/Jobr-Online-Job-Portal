@@ -48,11 +48,11 @@ const PersonnalInfo = ({ userId }) => {
     setIsLoading(true);
     try {
       const response = await resumeAxiosInstance.put(`/update-resume/${user.resumeId}`, values);
-      console.log(response);
       toast.success(response.data.message);
       localStorage.setItem("resume", JSON.stringify(response.data.resume));
       setIsLoading(false);
     } catch (error) {
+      console.log(error);
       toast.error(error.message);
       setIsLoading(false);
     }
@@ -61,6 +61,7 @@ const PersonnalInfo = ({ userId }) => {
   useEffect(() => {
     (async function () {
       const response = await resumeAxiosInstance.get(`/${userId}`);
+      console.log(response);
       form.setValue("firstName", response?.data?.firstName);
       form.setValue("lastName", response?.data?.lastName);
       form.setValue("homeAddress", response?.data?.homeAddress);
