@@ -15,7 +15,7 @@ const Applications = () => {
   }, [employerId]);
 
   return (
-    <div className="p-3">
+    <div className="p-3 w-[900px] md:w-full ">
       <div className="bg-white p-3">
         All Applications
         <Separator className="my-4" />

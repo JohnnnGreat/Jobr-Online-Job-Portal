@@ -60,13 +60,13 @@ const router = createBrowserRouter([
             path: "/employer",
             element: <EmployerLayout />,
             children: [
-              { path: "addjob", element: <JobBoard /> },
+              { path: "addjob", index: true, element: <JobBoard /> },
               {
                 path: "applications",
                 element: <Applications />,
                 children: [{ path: ":applicationId", element: <ApplicationDetails /> }],
               },
-              { path: "profile", index: true, element: <EmProfile /> },
+              { path: "profile", element: <EmProfile /> },
               {
                 path: "alljobs",
                 element: <EmployerAllJobs />,

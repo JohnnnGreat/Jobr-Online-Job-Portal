@@ -33,33 +33,44 @@ const Home = () => {
         </div>
       ) : (
         <>
-          <div className="bg-[#FEFCF2] pt-[4rem] relative p-3">
+          <div className="bg-[#FEFCF2] pt-16 relative p-3">
+            {/* Image pattern on the left for larger screens */}
             <img
               src={PatternRight}
-              className="h-full absolute left-[-5rem] top-0 hidden lg:inline-block"
+              className="hidden lg:block h-full absolute left-[-5rem] top-0"
             />
-            <div className="max-w-[1100px] mx-auto  flex items-center justify-center ">
+            {/* Centering the content with max width and auto margin */}
+            <div className="max-w-[1100px] mx-auto flex flex-col items-center justify-center">
               <div>
-                {" "}
-                <h1 className="text-[40px] font-semibold max-w-[700px] text-center leading-[1.2]">
+                {/* Main heading with responsive text size and text alignment */}
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold max-w-[700px] text-center leading-tight sm:leading-snug">
                   Find Your Dream Job at the World’s Top Companies
                 </h1>
-                <p className="max-w-[600px] text-center mx-auto mt-[1rem] bg-[#fffff]">
+                {/* Description text with responsive margin and padding */}
+                <p className="max-w-[600px] text-center mx-auto mt-4 sm:mt-6 lg:mt-8">
                   Discover endless opportunities across various industries with our easy-to-use job
                   search platform. Whether you're an experienced professional or just starting your
                   career, we've got the perfect match for you.
                 </p>
-                <div className="flex gap-3 justify-center mt-[.8rem]">
-                  <div className="border border-[#D6D6D6] rounded-md">
-                    <Input placeholder="Enter a Job title" className="w-[400px] border-none " />
+                {/* Search input and button with responsive gap and padding */}
+                <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4 sm:mt-6">
+                  <div className="border border-[#D6D6D6] rounded-md w-full sm:w-auto">
+                    {/* Responsive input width */}
+                    <Input
+                      placeholder="Enter a Job title"
+                      className="w-full sm:w-[300px] md:w-[400px] border-none"
+                    />
                   </div>
-
-                  <Button className="bg-[#F77F00]">Search</Button>
+                  {/* Responsive button with padding adjustment */}
+                  <Button className="bg-[#F77F00] w-full sm:w-auto px-6 py-2 mt-2 sm:mt-0">
+                    Search
+                  </Button>
                 </div>
+                {/* Image at the bottom with responsive margin */}
                 <img
                   src={HomeImage}
                   alt="Home Description Image"
-                  className="mt-[1.2rem] rounded-[20px]"
+                  className="mt-4 sm:mt-6 rounded-[20px] max-w-full"
                 />
               </div>
             </div>

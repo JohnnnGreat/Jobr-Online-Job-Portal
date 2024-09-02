@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,6 +17,7 @@ import { useEmployer } from "../../contexts/employerContext";
 const JobCardEmp = ({ job }) => {
   const { refresh } = useJob();
   const { refreshJobPost } = useEmployer();
+  const navigate = useNavigate();
   const handleDeleteJob = async (id) => {
     try {
       const response = await employerAxiosInstance.delete(`/deletejobbyid/${id}`);
@@ -47,7 +48,14 @@ const JobCardEmp = ({ job }) => {
             </Button>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Button variant="outline">My Applications</Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                navigate("/employer/applications");
+              }}
+            >
+              My Applications
+            </Button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

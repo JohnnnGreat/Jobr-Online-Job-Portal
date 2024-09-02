@@ -64,7 +64,7 @@ const EmpLogin = () => {
         autoClose: 5000,
       });
       await signInOrSignUp(response.data);
-      navigate("/employer");
+      navigate("/employer/alljobs");
     } catch (error) {
       toast.update(toastId, {
         render: error.response.data.msg || "An error occurred. Please try again.",

@@ -48,6 +48,7 @@ const PersonnalInfo = ({ userId }) => {
     setIsLoading(true);
     try {
       const response = await resumeAxiosInstance.put(`/update-resume/${user.resumeId}`, values);
+      console.log(response);
       toast.success(response.data.message);
       localStorage.setItem("resume", JSON.stringify(response.data.resume));
       setIsLoading(false);

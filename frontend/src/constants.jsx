@@ -1,5 +1,5 @@
 const employerIsLoggedIn = localStorage.getItem("employerToken") ? true : false;
-import { House, User } from "lucide-react";
+import { Briefcase, FilePlus, House, User, Users } from "lucide-react";
 import { CirclePlus } from "lucide-react";
 
 export const navConstants = [
@@ -22,29 +22,33 @@ export const navConstants = [
 
 export const employerNav = [
   {
-    id: 2,
+    id: 1,
     name: "All Jobs",
     route: "/employer/alljobs",
     shouldRender: true,
-    icon: <CirclePlus />,
+    icon: <Briefcase className="size-5" />, // Briefcase is more indicative of jobs and employment
   },
   {
     id: 2,
     name: "Profile",
     route: "/employer/profile",
     shouldRender: true,
-    icon: <User />,
+    icon: <User className="size-5" />, // User icon for the profile section
   },
-  { id: 3, name: "Upload Job", route: "/employer/addjob", shouldRender: true, icon: <House /> },
+  {
+    id: 3,
+    name: "Upload Job",
+    route: "/employer/addjob",
+    shouldRender: true,
+    icon: <FilePlus className="size-5" />, // FilePlus for adding or uploading new job postings
+  },
   {
     id: 4,
     name: "Applications",
     route: "/employer/applications",
     shouldRender: true,
-    icon: <House />,
+    icon: <Users className="size-5" />, // Users icon represents a group or multiple candidates
   },
-
-  // { id: 4, name: "Become an Employer", route: "/employer/auth", shouldRender: !employerIsLoggedIn },
 ];
 
 export const jobTypes = [

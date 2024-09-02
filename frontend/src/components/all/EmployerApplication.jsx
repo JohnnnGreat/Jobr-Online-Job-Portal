@@ -6,6 +6,7 @@ import SelectField from "../jobs/SelectField";
 import { useApplication } from "../../contexts/applicationContext";
 import { Textarea } from "../ui/textarea";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const EmployerApplication = ({ application }) => {
   const { getAllApplicationsForJob, totalApplications, refreshDefault } = useApplication();
@@ -122,7 +123,7 @@ const EmployerApplication = ({ application }) => {
               {new Date(application?.createdAt).toLocaleDateString()}
             </span>
           </h1>
-          <Button>View Application</Button>
+          <Link to={`${application._id}`}>View Application</Link>
         </div>
       </div>
       <div>

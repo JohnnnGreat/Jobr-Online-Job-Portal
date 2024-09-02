@@ -38,7 +38,7 @@ const EmployerLayout = () => {
                     <li key={nav.route}>
                       <Link
                         to={nav.route}
-                        className={`flex gap-3 p-[1rem] rounded-md ${
+                        className={`text-[.93rem] text-gray-800 flex gap-3 p-[1rem] rounded-md ${
                           location.pathname === nav.route
                             ? "bg-[#FBBC04] text-black"
                             : "bg-[#f3f3f3a8]"

@@ -41,7 +41,6 @@ const updateResume = async (req, res) => {
       { new: true, runValidators: true }
     );
 
-    console.log(newResume);
     if (!updatedResume) {
       return res.status(404).json({ message: "Resume not found" });
     }
