@@ -7,7 +7,7 @@ const JobsCard = ({ jobInfo }) => {
   return (
     <Link
       to={`/jobs/${jobInfo?._id}`}
-      className="block rounded-xl border p-4 max-w-full w-full overflow-hidden hover:bg-gray-100 transition-colors"
+      className="block rounded-xl h-fit border p-4 max-w-full w-full overflow-hidden hover:bg-gray-100 transition-colors"
     >
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-3">
