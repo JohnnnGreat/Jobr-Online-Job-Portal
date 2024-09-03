@@ -6,7 +6,6 @@ import { useEmployer } from "../contexts/employerContext";
 import JobCardEmp from "../components/all/JobCardEmp";
 import NoJobsUploaded from "../components/jobs/NoJobsUploaded";
 import { Helmet } from "react-helmet";
-import { useLoaderData } from "react-router-dom";
 
 const EmployerAllJobs = () => {
   const { allJobsByEmployer: jobs, getSearchResults, refreshJobPost } = useEmployer();
@@ -44,10 +43,6 @@ const EmployerAllJobs = () => {
             ))}
           </div>
         )}
-      </div>
-
-      <div>
-        <h1>You need to verify your account to continue</h1>
       </div>
     </div>
   );

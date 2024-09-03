@@ -38,6 +38,7 @@ const EmpSignup = () => {
   const navigate = useNavigate();
 
   const [passwordStrength, setPasswordStrength] = useState(0);
+  const [loading, setLoading] = useState(false); // Add loading state
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -64,12 +65,15 @@ const EmpSignup = () => {
   };
 
   const onSubmit = async (values) => {
+    setLoading(true); // Set loading to true when submission starts
     try {
       const response = await employerAxiosInstance.post("/signup", values);
       toast.success(response.data.msg);
     } catch (error) {
       console.error(error.response.data.msg);
       toast.error(error.response.data.msg);
+    } finally {
+      setLoading(false); // Reset loading to false after submission completes
     }
   };
 
@@ -155,8 +159,9 @@ const EmpSignup = () => {
                   ))}
                 </div>
               </div>
-              <Button type="submit" className="block w-full mt-[.7rem]">
-                Submit
+              <Button type="submit" className="block w-full mt-[.7rem]" disabled={loading}>
+                {loading ? "Submitting..." : "Submit"}{" "}
+                {/* Update button content based on loading state */}
               </Button>
               <p className="text-center text-gray-700 text-[.8rem] mt-2">
                 Already Signed Up?{" "}

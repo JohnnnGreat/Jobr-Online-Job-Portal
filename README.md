@@ -19,9 +19,26 @@ JobR is a modern job search platform built using Vite and React. It allows users
   - React
   - Vite
   - Tailwind
+  - WebSocket
 
 - **Backend**: (if applicable)
-  - e.g., Node.js, Express
+  - e.g., Node.js, Express 
+
+## Features
+1. Custom CV Builder
+2. Advance Job Searching
+3. Users and Employers Dashboard
+4. Intuitive Ui Design
+5. Embedded HRManagement System for Employer
+6. Custom Push Notifications
+7. OAuth Authentication
+
+
+## Further Areas for Collaboration
+1. Implementation of a more robust authentication for all employers page
+2. Adding and Development of Some Frontend Pages- Users Profile
+3. Profile Sorting Grading System
+4. ....
 
 ## Installation
 

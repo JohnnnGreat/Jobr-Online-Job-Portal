@@ -1,7 +1,6 @@
 import { Outlet, useLoaderData } from "react-router-dom";
 import { Header } from "./layout/Header";
 import { ToastContainer } from "react-toastify";
-import { useEmployerHooks } from "./hooks/useEmployerHooks";
 import useWebSocket from "react-use-websocket";
 import { useEmployer } from "./contexts/employerContext";
 import { employerAxiosInstance } from "./axiosInstance";

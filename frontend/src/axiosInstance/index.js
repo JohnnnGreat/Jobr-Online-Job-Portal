@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // axiosInstance.js
 import axios from "axios";
 const userToken = localStorage.getItem("sessionToken");
@@ -28,7 +29,6 @@ export const employerAxiosInstance = axios.create({
     // You can set other default headers here
   },
 });
-
 
 export const jobAxiosInstance = axios.create({
   baseURL:
