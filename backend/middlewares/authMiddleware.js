@@ -15,9 +15,9 @@ const employerProtect = async (req, res, next) => {
       if (!isAdmin) {
         return res.status(403).json({ message: "User is not an admin" });
       }
-      if (!isVerified) {
-        return res.status(403).json({ message: "User is not verified" });
-      }
+      // if (!isVerified) {
+      //   return res.status(403).json({ message: "User is not verified" });
+      // }
       // Fetch the user from the database and attach it to the request
       req.userDetails = { user: decoded?.userId, role: decoded?.role };
 
