@@ -14,7 +14,8 @@ JobR is a modern job search platform built using Vite and React. It allows users
 
 ## Technologies Used
 
-- **Frontend**: 
+- **Frontend**:
+
   - React
   - Vite
   - Tailwind
@@ -27,15 +28,21 @@ JobR is a modern job search platform built using Vite and React. It allows users
 To run the project locally, follow these steps:
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/jobr.git
 
+   ```
+
 2. Navigate to the project directory:
-    ```bash
-    cd jobr
+   ```bash
+   cd jobr
+   ```
 3. Install the dependencies:
-    ```bash
-    npm install
+   ```bash
+   npm install
+   ```
 4. Start the development server:
-    ```bash
-    npm run dev
+   ```bash
+   npm run dev
+   ```
