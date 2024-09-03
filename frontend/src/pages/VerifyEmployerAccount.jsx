@@ -12,6 +12,7 @@ const VerifyEmployerAccount = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { refreshEmployer } = useEmployer();
+
   useEffect(() => {
     const verifyAccount = async () => {
       const res = await employerAxiosInstance.get(`/verify/${token}`);
