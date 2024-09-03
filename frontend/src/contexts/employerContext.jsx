@@ -17,7 +17,7 @@ export const useEmployer = () => {
 export const EmployerProvider = ({ children }) => {
   const [employer, setEmployer] = useState(JSON.parse(localStorage.getItem("employer")));
   const [allJobsByEmployer, setAllJobsByEmployer] = useState(
-    JSON.parse(localStorage.getItem("allJobs"))
+    JSON.parse(localStorage.getItem("allJobs")) ? JSON.parse(localStorage.getItem("allJobs")) : []
   );
 
   const refreshJobPost = async () => {
