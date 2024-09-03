@@ -67,6 +67,7 @@ const EmpLogin = () => {
       await signInOrSignUp(response.data);
       navigate("/employer/alljobs");
     } catch (error) {
+      console.log(error);
       toast.update(toastId, {
         render: error.response.data.msg || "An error occurred. Please try again.",
         type: "error",

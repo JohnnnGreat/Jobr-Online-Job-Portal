@@ -12,21 +12,19 @@ import { JobProvider } from "./contexts/jobContext";
 import { ApplicationProvider } from "./contexts/applicationContext";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <ResumeProvider>
-      <ApplicationProvider>
-        <JobProvider>
-          <EmployerProvider>
-            <UserProvider>
-              <GoogleOAuthProvider clientId="79946673447-0e7h6b04a3aq1kfhb6qikml7rld246ah.apps.googleusercontent.com">
-                <NextUIProvider>
-                  <RouterProvider router={router} />
-                </NextUIProvider>
-              </GoogleOAuthProvider>
-            </UserProvider>
-          </EmployerProvider>
-        </JobProvider>
-      </ApplicationProvider>
-    </ResumeProvider>
-  </StrictMode>
+  <ResumeProvider>
+    <ApplicationProvider>
+      <JobProvider>
+        <EmployerProvider>
+          <UserProvider>
+            <GoogleOAuthProvider clientId="79946673447-0e7h6b04a3aq1kfhb6qikml7rld246ah.apps.googleusercontent.com">
+              <NextUIProvider>
+                <RouterProvider router={router} />
+              </NextUIProvider>
+            </GoogleOAuthProvider>
+          </UserProvider>
+        </EmployerProvider>
+      </JobProvider>
+    </ApplicationProvider>
+  </ResumeProvider>
 );

@@ -35,7 +35,7 @@ const verifyToken = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(req.body);
   try {
     if (!email || !password) {
       return res.status(400).json({ msg: "Please enter all fields" });
@@ -191,7 +191,7 @@ const sendNewVerificationToken = async (req, res) => {
 
     const verifyUrl = `${
       process.env.NODE_ENV === "development"
-        ? "http://localhost:5173"
+        ? "http://localhost:5174"
         : "https://jobr-online-job-portal.onrender.com"
     }/employer/verify/${user.verificationToken}`;
     const mailOptions = {
@@ -286,6 +286,23 @@ const resetPassword = async (req, res) => {
   }
 };
 
+const getEmployerById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const employer = await Employer.findById(id);
+
+    if (!employer) {
+      return res.status(404).json({ msg: "Employer not found" });
+    }
+
+    res.status(200).json(employer);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
 module.exports = {
   deleteJobById,
   signUp,
@@ -297,4 +314,5 @@ module.exports = {
   sendNewVerificationToken,
   sendPasswordResetEmail,
   resetPassword,
+  getEmployerById,
 };

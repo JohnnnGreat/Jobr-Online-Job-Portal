@@ -10,10 +10,10 @@ import { useLoaderData } from "react-router-dom";
 
 const EmployerAllJobs = () => {
   const { allJobsByEmployer: jobs, getSearchResults, refreshJobPost } = useEmployer();
-  console.log(jobs);
+
   useEffect(() => {
     refreshJobPost();
-  }, []);
+  }, [refreshJobPost]);
 
   return (
     <div className="max-w-[90%] lg:max-w-[80%] mx-auto mt-6">

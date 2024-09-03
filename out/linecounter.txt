@@ -1,0 +1,185 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2024-09-03 16:34:27
+count workspace : c:\Users\John\Desktop\job-finder
+total files : 160
+total code lines : 24065
+total comment lines : 1472
+total blank lines : 949
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .json|          13222|              2|            186|     55|
+   |            .js|           1352|             97|            223|    5.6|
+   |           .jsx|           5233|             90|            474|     22|
+   |           .css|            173|              3|             26|   0.72|
+   |            .md|             39|              3|             17|   0.16|
+   |           .svg|              2|              0|              0| 0.0083|
+   |          .html|             16|              0|              3|  0.066|
+   |               |           4013|           1274|             16|     17|
+   |       .example|             15|              3|              4|  0.062|
+   -------------------------------------------------------------------------
+backend\.env, code is 12, comment is 2, blank is 5.
+backend\.env.example, code is 15, comment is 3, blank is 4.
+backend\.gitignore, code is 1, comment is 0, blank is 0.
+backend\controllers\auth.js, code is 74, comment is 0, blank is 23.
+backend\controllers\employerAuthController.js, code is 251, comment is 0, blank is 49.
+backend\controllers\jobsController.js, code is 87, comment is 1, blank is 16.
+backend\controllers\resume.js, code is 34, comment is 14, blank is 10.
+backend\controllers\userApplicationControllers.js, code is 148, comment is 0, blank is 22.
+backend\index.js, code is 44, comment is 8, blank is 10.
+backend\middlewares\authMiddleware.js, code is 26, comment is 2, blank is 8.
+backend\middlewares\isEmployerMiddleware.js, code is 0, comment is 0, blank is 0.
+backend\models\authModels.js, code is 60, comment is 2, blank is 5.
+backend\models\employerAuthModels.js, code is 32, comment is 3, blank is 3.
+backend\models\jobsModels.js, code is 107, comment is 15, blank is 3.
+backend\models\profileModel.js, code is 0, comment is 0, blank is 0.
+backend\models\resumeModel.js, code is 35, comment is 13, blank is 5.
+backend\models\userApplicationModel.js, code is 51, comment is 5, blank is 3.
+backend\package-lock.json, code is 2141, comment is 0, blank is 3.
+backend\package.json, code is 32, comment is 0, blank is 0.
+backend\passportconfig.js, code is 29, comment is 11, blank is 5.
+backend\routes\authroutes.js, code is 6, comment is 0, blank is 3.
+backend\routes\employerAuthRoutes.js, code is 26, comment is 0, blank is 3.
+backend\routes\jobsRoutes.js, code is 19, comment is 5, blank is 7.
+backend\routes\resumeRoutes.js, code is 6, comment is 0, blank is 3.
+backend\routes\userApplicationRoutes.js, code is 11, comment is 6, blank is 8.
+backend\uploads\01c0be9c22aadf0fdb16940e9e353bf8, code is 780, comment is 103, blank is 2.
+backend\uploads\0c2f3da45b0a9f2c8c906c76681b5972, code is 240, comment is 1, blank is 1.
+backend\uploads\122323de08854b4b10e6e78085833ef8, code is 336, comment is 214, blank is 1.
+backend\uploads\431760c7faf7e1f4c310f3ed68c32e89, code is 240, comment is 1, blank is 1.
+backend\uploads\467548333e11cbf35ffc6d2892e95085, it is a binary file.
+backend\uploads\55665b0bbbc05fd75dd44d330a0d2769, it is a binary file.
+backend\uploads\55b8cc21eb495a02366bfb2cd5480719, code is 336, comment is 214, blank is 1.
+backend\uploads\571c4195bf30954d5541f9a792373c5d, code is 240, comment is 1, blank is 1.
+backend\uploads\837bb8de3918e03177009d013f279b84, code is 1198, comment is 4, blank is 0.
+backend\uploads\92274dd9f790cbb28aee2533f9b429db, it is a binary file.
+backend\uploads\989af6f6eb18ccc5aa1ebc9470433c3f, code is 136, comment is 723, blank is 0.
+backend\uploads\d54b191a9d868bcc2e428b8fb0184932, it is a binary file.
+backend\uploads\dd82f4614a27bebcb930c32fba066615, code is 240, comment is 1, blank is 1.
+backend\uploads\e015d3c86394b35a9c678c38f1022477, it is a binary file.
+backend\uploads\ee6162f17a7b8a5fe83fd854a20179a0, code is 240, comment is 1, blank is 1.
+backend\uploads\eff5acaedbade3545267f03c1385cb98, it is a binary file.
+backend\uploads\fd0e2087233af3515fb6bb4d965c4c85, it is a binary file.
+frontend\.gitignore, code is 14, comment is 9, blank is 2.
+frontend\components.json, code is 17, comment is 0, blank is 0.
+frontend\eslint.config.js, code is 34, comment is 0, blank is 1.
+frontend\index.html, code is 16, comment is 0, blank is 3.
+frontend\jsconfig.json, code is 13, comment is 2, blank is 0.
+frontend\package-lock.json, code is 10615, comment is 0, blank is 147.
+frontend\package.json, code is 63, comment is 0, blank is 0.
+frontend\postcss.config.js, code is 6, comment is 0, blank is 0.
+frontend\public\avatar.png, it is a binary file.
+frontend\public\homeIm.jpg, it is a binary file.
+frontend\public\MacBook Air - 8.jpg, it is a binary file.
+frontend\public\patternOne.png, it is a binary file.
+frontend\public\rightP.jpg, it is a binary file.
+frontend\public\vite.svg, code is 1, comment is 0, blank is 0.
+frontend\README.md, code is 5, comment is 2, blank is 3.
+frontend\src\App.css, code is 37, comment is 0, blank is 5.
+frontend\src\App.jsx, code is 17, comment is 0, blank is 2.
+frontend\src\assets\react.svg, code is 1, comment is 0, blank is 0.
+frontend\src\axiosInstance\index.js, code is 40, comment is 6, blank is 9.
+frontend\src\components\addJobs.js, code is 0, comment is 0, blank is 0.
+frontend\src\components\all\EmployerApplication.jsx, code is 135, comment is 3, blank is 11.
+frontend\src\components\all\JobCardEmp.jsx, code is 106, comment is 0, blank is 6.
+frontend\src\components\all\SideNav.jsx, code is 15, comment is 0, blank is 5.
+frontend\src\components\cv\ContactSection.jsx, code is 30, comment is 0, blank is 2.
+frontend\src\components\cv\CVHeader.jsx, code is 17, comment is 0, blank is 2.
+frontend\src\components\cv\JobExperienceItem.jsx, code is 24, comment is 0, blank is 2.
+frontend\src\components\cv\LanguagesSection.jsx, code is 16, comment is 0, blank is 3.
+frontend\src\components\cv\PortfolioSection.jsx, code is 15, comment is 0, blank is 2.
+frontend\src\components\cv\ProfileSection.jsx, code is 12, comment is 0, blank is 2.
+frontend\src\components\cv\ProfileSummary.jsx, code is 11, comment is 0, blank is 2.
+frontend\src\components\cv\SkillsSection.jsx, code is 17, comment is 0, blank is 2.
+frontend\src\components\cv\SocialMediaSection.jsx, code is 20, comment is 0, blank is 1.
+frontend\src\components\cv\WorkExperience.jsx, code is 11, comment is 0, blank is 2.
+frontend\src\components\Divider.jsx, code is 5, comment is 0, blank is 2.
+frontend\src\components\employer\EmployerProfile.jsx, code is 37, comment is 0, blank is 2.
+frontend\src\components\employer\JobsList.jsx, code is 27, comment is 0, blank is 2.
+frontend\src\components\Filter.jsx, code is 146, comment is 0, blank is 7.
+frontend\src\components\forms\GeneralInfo.jsx, code is 111, comment is 0, blank is 8.
+frontend\src\components\forms\JobExperience.jsx, code is 176, comment is 0, blank is 8.
+frontend\src\components\forms\Languages.jsx, code is 41, comment is 0, blank is 2.
+frontend\src\components\forms\PersonnalInfo.jsx, code is 180, comment is 0, blank is 11.
+frontend\src\components\forms\Skill.jsx, code is 76, comment is 0, blank is 7.
+frontend\src\components\forms\SocialLinks.jsx, code is 122, comment is 0, blank is 6.
+frontend\src\components\headers\CVHeader.jsx, code is 18, comment is 0, blank is 2.
+frontend\src\components\headers\EmployerDashboardHeader.jsx, code is 23, comment is 0, blank is 2.
+frontend\src\components\headers\HomeHeader.jsx, code is 47, comment is 0, blank is 3.
+frontend\src\components\headers\index.jsx, code is 17, comment is 0, blank is 2.
+frontend\src\components\headers\JobSearchResults.jsx, code is 12, comment is 0, blank is 2.
+frontend\src\components\headers\ProfileHeader.jsx, code is 24, comment is 0, blank is 3.
+frontend\src\components\headers\SingleHeader.jsx, code is 18, comment is 0, blank is 2.
+frontend\src\components\jobs\Field.jsx, code is 10, comment is 0, blank is 2.
+frontend\src\components\jobs\JobForm.jsx, code is 149, comment is 0, blank is 2.
+frontend\src\components\jobs\NoJobsUploaded.jsx, code is 15, comment is 0, blank is 2.
+frontend\src\components\jobs\SelectField.jsx, code is 27, comment is 1, blank is 2.
+frontend\src\components\jobs\SwitchField.jsx, code is 15, comment is 1, blank is 2.
+frontend\src\components\jobs\TextareaField.jsx, code is 10, comment is 1, blank is 2.
+frontend\src\components\jobs\VerificationMessage.jsx, code is 6, comment is 0, blank is 1.
+frontend\src\components\JobsCard.jsx, code is 44, comment is 0, blank is 2.
+frontend\src\components\JobsDisplay.jsx, code is 18, comment is 0, blank is 2.
+frontend\src\components\LoginForm.jsx, code is 131, comment is 2, blank is 9.
+frontend\src\components\ui\avatar.jsx, code is 31, comment is 0, blank is 5.
+frontend\src\components\ui\badge.jsx, code is 25, comment is 0, blank is 4.
+frontend\src\components\ui\button.jsx, code is 43, comment is 0, blank is 4.
+frontend\src\components\ui\calendar.jsx, code is 56, comment is 0, blank is 5.
+frontend\src\components\ui\card.jsx, code is 35, comment is 0, blank is 8.
+frontend\src\components\ui\checkbox.jsx, code is 20, comment is 0, blank is 3.
+frontend\src\components\ui\dropdown-menu.jsx, code is 140, comment is 0, blank is 17.
+frontend\src\components\ui\form.jsx, code is 111, comment is 0, blank is 22.
+frontend\src\components\ui\input.jsx, code is 17, comment is 0, blank is 3.
+frontend\src\components\ui\label.jsx, code is 11, comment is 0, blank is 5.
+frontend\src\components\ui\popover.jsx, code is 23, comment is 0, blank is 5.
+frontend\src\components\ui\scroll-area.jsx, code is 34, comment is 0, blank is 4.
+frontend\src\components\ui\select.jsx, code is 118, comment is 0, blank is 14.
+frontend\src\components\ui\separator.jsx, code is 20, comment is 0, blank is 3.
+frontend\src\components\ui\switch.jsx, code is 18, comment is 0, blank is 4.
+frontend\src\components\ui\textarea.jsx, code is 16, comment is 0, blank is 3.
+frontend\src\components\ui\toast.jsx, code is 88, comment is 0, blank is 10.
+frontend\src\components\ui\toaster.jsx, code is 31, comment is 0, blank is 2.
+frontend\src\components\ui\use-toast.js, code is 127, comment is 3, blank is 24.
+frontend\src\constants.jsx, code is 205, comment is 4, blank is 8.
+frontend\src\contexts\applicationContext.jsx, code is 67, comment is 8, blank is 12.
+frontend\src\contexts\employerContext.jsx, code is 72, comment is 10, blank is 11.
+frontend\src\contexts\jobContext.jsx, code is 75, comment is 10, blank is 12.
+frontend\src\contexts\resumeContext.jsx, code is 12, comment is 3, blank is 5.
+frontend\src\contexts\userContext.jsx, code is 27, comment is 11, blank is 7.
+frontend\src\index.css, code is 136, comment is 3, blank is 21.
+frontend\src\layout\Header.jsx, code is 189, comment is 3, blank is 10.
+frontend\src\lib\utils.js, code is 14, comment is 1, blank is 2.
+frontend\src\main.jsx, code is 31, comment is 0, blank is 1.
+frontend\src\pages\404.jsx, code is 8, comment is 2, blank is 2.
+frontend\src\pages\About.jsx, code is 4, comment is 0, blank is 1.
+frontend\src\pages\ApplicationDetails.jsx, code is 5, comment is 0, blank is 2.
+frontend\src\pages\Applications.jsx, code is 35, comment is 1, blank is 6.
+frontend\src\pages\CVView.jsx, code is 58, comment is 0, blank is 6.
+frontend\src\pages\EditCv.jsx, code is 160, comment is 2, blank is 15.
+frontend\src\pages\EmpLogin.jsx, code is 185, comment is 4, blank is 13.
+frontend\src\pages\EmployerAllJobs.jsx, code is 51, comment is 0, blank is 5.
+frontend\src\pages\EmployerDashboard.jsx, code is 11, comment is 0, blank is 2.
+frontend\src\pages\EmployerLayout.jsx, code is 73, comment is 2, blank is 7.
+frontend\src\pages\EmProfile.jsx, code is 19, comment is 0, blank is 2.
+frontend\src\pages\EmpSignup.jsx, code is 163, comment is 1, blank is 11.
+frontend\src\pages\Home.jsx, code is 104, comment is 4, blank is 4.
+frontend\src\pages\JobBoard.jsx, code is 189, comment is 1, blank is 10.
+frontend\src\pages\Jobs.jsx, code is 0, comment is 0, blank is 0.
+frontend\src\pages\JobSearch.jsx, code is 101, comment is 2, blank is 8.
+frontend\src\pages\Login.jsx, code is 119, comment is 5, blank is 12.
+frontend\src\pages\Logout.jsx, code is 8, comment is 0, blank is 2.
+frontend\src\pages\MyApplications.jsx, code is 76, comment is 0, blank is 6.
+frontend\src\pages\Profile.jsx, code is 15, comment is 0, blank is 3.
+frontend\src\pages\Signup.jsx, code is 125, comment is 5, blank is 10.
+frontend\src\pages\SingleJob.jsx, code is 136, comment is 1, blank is 10.
+frontend\src\pages\VerifyEmployerAccount.jsx, code is 28, comment is 3, blank is 4.
+frontend\src\routes.jsx, code is 94, comment is 0, blank is 5.
+frontend\tailwind.config.js, code is 80, comment is 1, blank is 0.
+frontend\vercel.json, code is 1, comment is 0, blank is 0.
+frontend\vite.config.js, code is 5, comment is 1, blank is 1.
+jobs.json, code is 340, comment is 0, blank is 36.
+README.md, code is 34, comment is 1, blank is 14.
+===============================================================================
