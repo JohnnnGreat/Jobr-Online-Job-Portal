@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEmployer } from "../contexts/employerContext";
+import { employerAxiosInstance } from "../axiosInstance";
 
 const VerifyEmployerAccount = () => {
   const { token } = useParams(); // Get the token from the URL
@@ -13,7 +14,7 @@ const VerifyEmployerAccount = () => {
   const { refreshEmployer } = useEmployer();
   useEffect(() => {
     const verifyAccount = async () => {
-      const res = await axios.get(`http://localhost:7070/api/employer/verify/${token}`);
+      const res = await employerAxiosInstance.get(`/verify/${token}`);
       await toast.success("Account Verified Successfully");
       refreshEmployer(res.data.user);
       navigate("/employer/dashboard");
