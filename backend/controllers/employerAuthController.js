@@ -5,27 +5,19 @@ const bcrypt = require("bcryptjs");
 const Job = require("../models/jobsModels");
 const jwt = require("jsonwebtoken");
 
-// Configure Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "Gmail", // or use a different email service
+  service: "Gmail",
   auth: {
-    user: "scholarhubbot@gmail.com",
-    pass: "vqrrtrkcnmdicsht",
+    user: process.env.AUTH_EMAIL,
+    pass: process.env.AUTH_PASSWORD,
   },
 });
 
-/**
- * Verifies the user's account using the verification token.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- * @returns {Promise<void>} - Returns a promise that resolves when the token is verified.
- */
 const verifyToken = async (req, res) => {
   const { token } = req.params;
 
   try {
     const user = await Employer.findOne({ verificationToken: token });
-    console.log(user);
 
     if (!user) {
       return res.status(400).json({ msg: "Invalid or expired token" });
@@ -37,17 +29,10 @@ const verifyToken = async (req, res) => {
 
     res.status(200).json({ msg: "Account verified successfully", user });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 };
 
-/**
- * Authenticates a user and generates a session token.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- * @returns {Promise<void>} - Returns a promise that resolves when the user is authenticated.
- */
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -56,12 +41,11 @@ const login = async (req, res) => {
       return res.status(400).json({ msg: "Please enter all fields" });
     }
 
-    let user = await Employer.findOne({ email });
+    const user = await Employer.findOne({ email });
     if (!user) {
       return res.status(400).json({ msg: "Invalid Login Credentials" });
     }
 
-    // Compare Password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ msg: "Invalid Login Credentials" });
@@ -70,24 +54,15 @@ const login = async (req, res) => {
     const sessionToken = jwt.sign(
       { employerId: user._id, email: user.email, isVerified: user.isVerified, isAdmin: true },
       process.env.JWT_TOKEN,
-      {
-        expiresIn: "10h",
-      }
+      { expiresIn: "10h" }
     );
 
     return res.status(200).json({ sessionToken, user });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ msg: "Server error" });
   }
 };
 
-/**
- * Registers a new user and sends a verification email.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- * @returns {Promise<void>} - Returns a promise that resolves when the user is registered.
- */
 const signUp = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -113,10 +88,13 @@ const signUp = async (req, res) => {
 
     await user.save();
 
-    // Send verification email
-    const verifyUrl = `http://localhost:5173/employer/verify/${user.verificationToken}`;
+    const verifyUrl = `${
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5173"
+        : "https://jobr-online-job-portal.onrender.com"
+    }/employer/verify/${user.verificationToken}`;
     const mailOptions = {
-      from: "scholarhubbot@gmail.com",
+      from: process.env.AUTH_EMAIL,
       to: email,
       subject: "Account Verification",
       html: `Please click the following link to verify your account: <a href="${verifyUrl}">Verify your account</a>`,
@@ -128,7 +106,6 @@ const signUp = async (req, res) => {
 
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
-        console.error("Error sending email:", err);
         return res.status(500).json({ msg: "Error sending verification email" });
       }
       res.status(201).json({
@@ -138,91 +115,52 @@ const signUp = async (req, res) => {
       });
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 };
 
-/**
- * Adds a new job to the database.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- * @returns {Promise<void>} - Returns a promise that resolves when the job is added.
- */
 const addJob = async (req, res) => {
   try {
     const jobData = req.body;
-    console.log(jobData);
 
-    // Generate a new unique ID
     const lastJob = await Job.findOne().sort({ id: -1 });
     const newId = lastJob ? lastJob.id + 1 : 1;
     jobData.id = newId;
 
-    // Create a new job instance
     const newJob = new Job(jobData);
-
-    // Save the new job to the database
     const savedJob = await newJob.save();
 
     res.status(201).json(savedJob);
   } catch (error) {
     if (error.name === "ValidationError") {
-      // Handle validation errors
       const errors = Object.values(error.errors).map((err) => err.message);
       return res.status(400).json({ errors });
     }
-    // Handle other errors
-    console.error("Error creating job:", error);
     res.status(500).json({ error: "An error occurred while creating the job" });
   }
 };
 
-/**
- * Retrieves all jobs from the database.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- * @returns {Promise<void>} - Returns a promise that resolves when the jobs are fetched.
- */
 const getAllJobs = async (req, res) => {
   try {
     const jobs = await Job.find().sort({ createdAt: -1 });
-
     res.json(jobs);
   } catch (error) {
-    console.error("Error fetching jobs:", error);
     res.status(500).json({ error: "An error occurred while fetching jobs" });
   }
 };
 
-/**
- * Retrieves all jobs posted by a specific employer.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- * @returns {Promise<void>} - Returns a promise that resolves when the jobs are fetched.
- */
 const getAllJobsByEmployer = async (req, res) => {
-  console.log(req.params);
   try {
     const jobs = await Job.find({ user: req.params.userId }).sort({ createdAt: -1 });
     res.json(jobs);
   } catch (error) {
-    console.error("Error fetching jobs:", error);
     res.status(500).json({ error: "An error occurred while fetching jobs" });
   }
 };
 
-/**
- * Deletes a job by its ID.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- * @returns {Promise<void>} - Returns a promise that resolves when the job is deleted.
- */
 const deleteJobById = async (req, res) => {
   try {
-    const jobId = req.params.id; // Get the job ID from request parameters
-
-    // Find and delete the job by ID
+    const jobId = req.params.id;
     const result = await Job.findByIdAndDelete(jobId);
 
     if (!result) {
@@ -231,7 +169,6 @@ const deleteJobById = async (req, res) => {
 
     res.status(200).json({ message: "Job successfully deleted" });
   } catch (error) {
-    console.error("Error deleting job:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -249,14 +186,16 @@ const sendNewVerificationToken = async (req, res) => {
       return res.status(404).json({ msg: "User not found" });
     }
 
-    // Generate a new verification token
     user.verificationToken = crypto.randomBytes(32).toString("hex");
     await user.save();
 
-    // Send verification email
-    const verifyUrl = `http://localhost:5173/employer/verify/${user.verificationToken}`;
+    const verifyUrl = `${
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5173"
+        : "https://jobr-online-job-portal.onrender.com"
+    }/employer/verify/${user.verificationToken}`;
     const mailOptions = {
-      from: "scholarhubbot@gmail.com",
+      from: process.env.AUTH_EMAIL,
       to: email,
       subject: "Account Verification",
       html: `Please click the following link to verify your account: <a href="${verifyUrl}">Verify your account</a>`,
@@ -264,7 +203,6 @@ const sendNewVerificationToken = async (req, res) => {
 
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
-        console.error("Error sending email:", err);
         return res.status(500).json({ msg: "Error sending verification email" });
       }
       res.status(200).json({
@@ -272,16 +210,10 @@ const sendNewVerificationToken = async (req, res) => {
       });
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 };
 
-/**
- * Handles password reset request by sending an email with a reset link.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- */
 const sendPasswordResetEmail = async (req, res) => {
   const { email } = req.body;
 
@@ -295,15 +227,17 @@ const sendPasswordResetEmail = async (req, res) => {
       return res.status(404).json({ msg: "User not found" });
     }
 
-    // Generate a reset token and expiration time
     user.resetToken = crypto.randomBytes(32).toString("hex");
-    user.resetTokenExpiration = Date.now() + 3600000; // Token expires in 1 hour
+    user.resetTokenExpiration = Date.now() + 3600000;
     await user.save();
 
-    // Send reset email
-    const resetUrl = `http://localhost:5173/employer/reset-password/${user.resetToken}`;
+    const resetUrl = `${
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5173"
+        : "https://jobr-online-job-portal.onrender.com"
+    }/employer/reset-password/${user.resetToken}`;
     const mailOptions = {
-      from: "scholarhubbot@gmail.com",
+      from: process.env.AUTH_EMAIL,
       to: email,
       subject: "Password Reset Request",
       html: `Please click the following link to reset your password: <a href="${resetUrl}">Reset your password</a>`,
@@ -311,7 +245,6 @@ const sendPasswordResetEmail = async (req, res) => {
 
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
-        console.error("Error sending email:", err);
         return res.status(500).json({ msg: "Error sending reset email" });
       }
       res.status(200).json({
@@ -319,16 +252,10 @@ const sendPasswordResetEmail = async (req, res) => {
       });
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 };
 
-/**
- * Resets the user's password.
- * @param {import("express").Request} req - The request object.
- * @param {import("express").Response} res - The response object.
- */
 const resetPassword = async (req, res) => {
   const { token } = req.params;
   const { password } = req.body;
@@ -340,14 +267,13 @@ const resetPassword = async (req, res) => {
   try {
     const user = await Employer.findOne({
       resetToken: token,
-      resetTokenExpiration: { $gt: Date.now() }, // Check if token is not expired
+      resetTokenExpiration: { $gt: Date.now() },
     });
 
     if (!user) {
       return res.status(400).json({ msg: "Invalid or expired token" });
     }
 
-    // Hash the new password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
     user.resetToken = undefined;
@@ -356,7 +282,6 @@ const resetPassword = async (req, res) => {
 
     res.status(200).json({ msg: "Password reset successfully" });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 };
