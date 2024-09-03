@@ -89,9 +89,7 @@ const signUp = async (req, res) => {
     await user.save();
 
     const verifyUrl = `${
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:5173"
-        : "https://jobr-online-job-portal.onrender.com"
+      process.env.NODE_ENV === "development" ? "http://localhost:5173" : "https://jobr.vercel.app"
     }/employer/verify/${user.verificationToken}`;
     const mailOptions = {
       from: process.env.AUTH_EMAIL,
@@ -190,9 +188,7 @@ const sendNewVerificationToken = async (req, res) => {
     await user.save();
 
     const verifyUrl = `${
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:5174"
-        : "https://jobr-online-job-portal.onrender.com"
+      process.env.NODE_ENV === "development" ? "http://localhost:5174" : "https://jobr.vercel.app"
     }/employer/verify/${user.verificationToken}`;
     const mailOptions = {
       from: process.env.AUTH_EMAIL,
@@ -232,9 +228,7 @@ const sendPasswordResetEmail = async (req, res) => {
     await user.save();
 
     const resetUrl = `${
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:5173"
-        : "https://jobr-online-job-portal.onrender.com"
+      process.env.NODE_ENV === "development" ? "http://localhost:5173" : "https://jobr.vercel.app"
     }/employer/reset-password/${user.resetToken}`;
     const mailOptions = {
       from: process.env.AUTH_EMAIL,
