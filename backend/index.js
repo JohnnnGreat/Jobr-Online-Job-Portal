@@ -24,10 +24,10 @@ const wsServer = new WebSocketServer({ server });
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(
-  cors({
-    origin: "*", // Configure allowed origins for CORS
-    methods: ["GET", "POST", "DELETE", "PUT"],
-  })
+   cors({
+      origin: "*", // Configure allowed origins for CORS
+      methods: ["GET", "POST", "DELETE", "PUT"],
+   }),
 );
 app.use(passport.initialize());
 
@@ -40,57 +40,56 @@ app.use("/api/applications", applicationRoutes);
 
 // Root route
 app.post("/", (req, res) => {
-  res.send("Welcome to the E-Commerce API");
+   res.send("Welcome to the E-Commerce API");
 });
 
 wsServer.on("connection", function (connection) {
-  console.log("A new WebSocket connection has been established.");
+   console.log("A new WebSocket connection has been established.");
 
-  connection.on("message", (message) => {
-    console.log("Received message:", message);
-  });
+   connection.on("message", (message) => {
+      console.log("Received message:", message);
+   });
 
-  connection.on("close", () => {
-    console.log("WebSocket connection closed.");
-  });
+   connection.on("close", () => {
+      console.log("WebSocket connection closed.");
+   });
 });
 
 // Connect to MongoDB and start server
 const startServer = async () => {
-  try {
-    const PORT = process.env.PORT || 7070;
+   try {
+      const PORT = process.env.PORT || 7070;
 
-    const DATABASE_URL =
-      process.env.NODE_ENV === "development" ? process.env.MONGO_DATABASE_URL : process.env.DB_URL;
+      const DATABASE_URL = process.env.NODE_ENV === "development" ? process.env.MONGO_DATABASE_URL : process.env.DB_URL;
 
-    await mongoose.connect(process.env.DB_URL);
-    console.log("Connected to MongoDB");
+      await mongoose.connect("mongodb://0.0.0.0:27017/jobr");
+      console.log("Connected to MongoDB");
 
-    // Set up change stream listeners
-    const db = mongoose.connection.db;
+      // Set up change stream listeners
+      const db = mongoose.connection.db;
 
-    // Listen for changes in the "yourCollectionName" collection
-    const changeStream = db.collection("employers").watch();
-    changeStream.on("change", (change) => {
-      console.log("Change detected:", change);
+      // Listen for changes in the "yourCollectionName" collection
+      // const changeStream = db.collection("employers").watch();
+      // changeStream.on("change", (change) => {
+      //    console.log("Change detected:", change);
 
-      // Broadcast changes to all WebSocket clients
-      wsServer.clients.forEach((client) => {
-        if (client.readyState === client.OPEN) {
-          client.send(JSON.stringify(change));
-        }
+      //    // Broadcast changes to all WebSocket clients
+      //    wsServer.clients.forEach((client) => {
+      //       if (client.readyState === client.OPEN) {
+      //          client.send(JSON.stringify(change));
+      //       }
+      //    });
+      // });
+      // server.listen(8080, () => {
+      //    console.log(`WebSocket server is running on port 8080`);
+      // });
+
+      app.listen(PORT, () => {
+         console.log(`Server running`);
       });
-    });
-    server.listen(8080, () => {
-      console.log(`WebSocket server is running on port 8080`);
-    });
-
-    app.listen(PORT, () => {
-      console.log(`Server running`);
-    });
-  } catch (err) {
-    console.error("Failed to connect to MongoDB", err);
-  }
+   } catch (err) {
+      console.error("Failed to connect to MongoDB", err);
+   }
 };
 
 // Start the server
