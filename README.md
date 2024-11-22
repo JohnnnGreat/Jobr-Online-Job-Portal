@@ -9,7 +9,7 @@ technologies.
 
 ### For Job Seekers
 
--  Browse and filter job listings
+-  Browse and filter job listing
 -  Custom CV creation and download
 -  Direct job applications
 -  Real-time application tracking
