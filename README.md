@@ -1,65 +1,168 @@
-# JobR - Job Search Platform
+# Job Finder App
 
 ## Overview
 
-JobR is a modern job search platform built using Vite and React. It allows users to explore job opportunities, filter listings based on various criteria, and apply for jobs directly through the application. The platform is designed to be user-friendly and responsive, providing a seamless experience across devices.
+A comprehensive job application platform connecting job seekers and employers, built with modern web
+technologies.
 
-## Features
+## 🌟 Key Features
 
-- **Job Search**: Search for job listings by keywords, location, and other filters.
-- **Job Details**: View detailed information for each job listing, including company details, job requirements, and application instructions.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
-- **User Profiles**: Create and manage user profiles to save jobs and track applications.
-- **Fast Performance**: Built with Vite, ensuring quick loading times and a smooth user experience.
+### For Job Seekers
 
-## Technologies Used
+-  Browse and filter job listings
+-  Custom CV creation and download
+-  Direct job applications
+-  Real-time application tracking
 
-- **Frontend**:
+### For Employers
 
-  - React
-  - Vite
-  - Tailwind
-  - WebSocket
+-  Job listing management
+-  Application tracking
+-  Applicant notifications
+-  Employer profile management
 
-- **Backend**: (if applicable)
-  - e.g., Node.js, Express 
+## 💻 Tech Stack
 
-## Features
-1. Custom CV Builder
-2. Advance Job Searching
-3. Users and Employers Dashboard
-4. Intuitive Ui Design
-5. Embedded HRManagement System for Employer
-6. Custom Push Notifications
-7. OAuth Authentication
+### Frontend
 
+-  React
+-  Vite
+-  Tailwind CSS
+-  React Router
+-  ShadcnUi
 
-## Further Areas for Collaboration
-1. Implementation of a more robust authentication for all employers page
-2. Adding and Development of Some Frontend Pages- Users Profile
-3. Profile Sorting Grading System
-4. ....
+### Backend
 
-## Installation
+-  Express.js
+-  MongoDB
+-  JWT Authentication
+-  Socket.io
+-  passport
 
-To run the project locally, follow these steps:
+## 🚀 Quick Start
 
-1. Clone the repository:
+### Prerequisites
+
+-  Node.js (v14+)
+-  MongoDB
+
+### Installation
+
+1. Clone repository
 
    ```bash
-   git clone https://github.com/yourusername/jobr.git
-
+   git clone <repository-url>
    ```
 
-2. Navigate to the project directory:
+2. Install dependencies
+
    ```bash
-   cd jobr
+   # Frontend
+   cd client && npm install
+
+   # Backend
+   cd server && npm install
    ```
-3. Install the dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+
+3. Configure environment
+   -  Create `.env` in `/server`
+   -  Add:
+      ```
+      PORT=5000
+      MONGO_URI=<your-mongodb-connection-string>
+      JWT_SECRET=<your-secret>
+      ```
+
+### Running Application
+
+```bash
+# Start backend
+cd server
+npm start
+
+# Start frontend
+cd client
+npm run dev
+```
+
+## 🌐 Deployment
+
+-  Frontend: Vercel, Netlify
+-  Backend: Heroku, Render
+-  Database: MongoDB Atlas
+
+
+## 🌟 API Endpoints
+
+### Authentication Routes
+| Method | Endpoint                    | Description               |
+|:-------|:----------------------------|:--------------------------|
+| POST   | `/auth/signup`              | User registration         |
+| POST   | `/auth/google`              | Google sign-in            |
+| POST   | `/auth/login`               | User login                |
+| GET    | `/auth/verify/:token`       | Verify user token         |
+
+### Employer Routes
+| Method | Endpoint                                  | Description                       |
+|:-------|:------------------------------------------|:----------------------------------|
+| POST   | `/employer/signup`                        | Employer registration             |
+| POST   | `/employer/login`                         | Employer login                    |
+| POST   | `/employer/jobs/add`                      | Add new job listing               |
+| GET    | `/employer/jobs/getalljobs`               | Get all job listings              |
+| GET    | `/employer/getalljobsbyemployer/:userId`  | Get jobs by specific employer     |
+| DELETE | `/employer/deletejobbyid/:id`             | Delete a job listing               |
+| POST   | `/employer/resend-verification-token`     | Resend verification token         |
+| POST   | `/employer/forgot-password`               | Send password reset email         |
+| POST   | `/employer/reset-password/:token`         | Reset password                    |
+| GET    | `/employer/getemployer/:id`               | Get employer details              |
+
+### Job Routes
+| Method | Endpoint                             | Description                  |
+|:-------|:-------------------------------------|:-----------------------------|
+| GET    | `/jobs/`                             | Get all jobs                 |
+| GET    | `/jobs/jobs/user/:userId`            | Get jobs by user             |
+| GET    | `/jobs/jobs/:jobId`                  | Get single job details       |
+| GET    | `/jobs/getrecentjobs`                | Get recent job listings      |
+| GET    | `/jobs/getjobbysearch/:searchText`   | Search jobs                  |
+| POST   | `/jobs/uploadfile/:userId`           | Upload file                  |
+
+### Resume Routes
+| Method | Endpoint                      | Description           |
+|:-------|:------------------------------|:----------------------|
+| PUT    | `/resume/update-resume/:id`   | Update resume         |
+| GET    | `/resume/:userId`             | Get user resume       |
+
+### Application Routes
+| Method | Endpoint                                             | Description                        |
+|:-------|:-----------------------------------------------------|:-----------------------------------|
+| POST   | `/applications/`                                     | Add new application                |
+| GET    | `/applications/user/:userId`                         | Get user applications              |
+| GET    | `/applications/job/:jobId`                           | Get job applications               |
+| GET    | `/applications/:applicationId`                       | Get single application             |
+| PUT    | `/applications/:applicationId`                       | Update application status          |
+| DELETE | `/applications/:applicationId`                       | Delete application                 |
+| GET    | `/applications/get-all-jobs-by-employer/:employerId` | Get employer's jobs                |
+## 🔒 Authentication
+
+-  JWT-based authentication
+-  Role-based access control
+-  Protected routes for users and employers
+
+## 📝 Contributing
+
+1. Fork repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create pull request
+
+
+
+### Figma Design
+[View Full Design on Figma](https://www.figma.com/design/KbcMKZjdjCGQPdjNhz1XHl/Untitled?m=auto&t=gnjKbTVFGeDr7F66-6)
+
+- Comprehensive UI/UX design for the entire application
+- Includes wireframes, component designs, and interaction flows
+- Provides a blueprint for frontend development
+
+[Remaining README content stays the same as in the previous submission]
