@@ -165,4 +165,4 @@ npm run dev
 - Includes wireframes, component designs, and interaction flows
 - Provides a blueprint for frontend development
 
-[Remaining README content stays the same as in the previous submission]
+
